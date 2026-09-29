@@ -1,0 +1,40 @@
+prescription-ai/
+│
+├── data/
+│   ├── raw/
+│   │   ├── doctor_handwritten_bd/
+│   │   └── mendeley_2026/
+│   │
+│   ├── processed/
+│   └── metadata/
+│
+├── cv/
+│
+├── ml/
+│
+├── backend/
+│
+├── frontend/
+│
+├── models/
+│
+├── experiments/
+│
+├── docker/
+│
+├── tests/
+│
+├── docs/
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+
+docs/
+├── PROJECT_SCOPE.md
+├── DATASET_SPECIFICATION.md
+├── SYSTEM_ARCHITECTURE.md
+├── API_SPECIFICATION.md
+├── EXPERIMENT_LOG.md
+└── DEPLOYMENT_PLAN.md
