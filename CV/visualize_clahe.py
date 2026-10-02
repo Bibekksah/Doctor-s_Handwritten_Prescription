@@ -39,7 +39,7 @@ DATASET_ROOT = (
 
 OUTPUT_DIR = (
     PROJECT_ROOT
-    / "experiments"
+    / "CV"
     / "clahe"
 )
 

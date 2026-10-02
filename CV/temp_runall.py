@@ -4,22 +4,29 @@ from pathlib import Path
 
 # Add project root to sys.path so subprocesses can resolve module paths cleanly
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.append(str(PROJECT_ROOT))
 
-experiments = [
+DATASET_ROOT = (
+    PROJECT_ROOT
+    / "data"
+    / "metadata"
+    / "Doctor’s Handwritten Prescription BD dataset"
+)
+
+cv = [
    "CV.test_denoising",
    "CV.test_grayscale",
    "CV.test_thresholding",
    "CV.test_clahe",
    "CV.visualize_clahe",
-   "CV.visualize_threshold"
+   "CV.visualize_threshold",
+   "CV.test_deskew",
+   "CV.visualize_deskew"
 
 ]
 
 
-def run_all_experiments():
-    for experiment in experiments:
+def run_all_cv():
+    for experiment in cv:
         print("\n" + "=" * 70)
         print(f"RUNNING: {experiment}")
         print("=" * 70)
@@ -38,10 +45,10 @@ def run_all_experiments():
         print(f"✅ COMPLETED: {experiment}")
 
     print("\n" + "=" * 70)
-    print("ALL EXPERIMENTS COMPLETED SUCCESSFULLY")
+    print("ALL cv COMPLETED SUCCESSFULLY")
     print("=" * 70)
 
 
 # Safe main guard for macOS multiprocessing (Note the DOUBLE underscores)
 if __name__ == "__main__":
-    run_all_experiments()
+    run_all_cv()

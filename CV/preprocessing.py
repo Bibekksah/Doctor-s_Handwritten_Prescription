@@ -280,3 +280,160 @@ def get_grayscale_denoise_threshold_transform():
     ])
 
     return transform
+
+# ============================================================
+# SKEW CORRECTION
+# ============================================================
+
+def estimate_skew_angle(image, max_angle=12.0):
+    """
+    Estimate the dominant skew angle of a grayscale PIL image.
+
+    A temporary Otsu threshold is used only for angle estimation.
+    The original grayscale image is not binarized.
+
+    Returns:
+        float: Estimated skew angle in degrees.
+    """
+
+    image_array = np.array(image)
+
+    # Temporary foreground mask for angle estimation
+    _, binary = cv2.threshold(
+        image_array,
+        0,
+        255,
+        cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
+    )
+
+    # Get foreground pixel coordinates
+    points = np.column_stack(
+        np.where(binary > 0)
+    )
+
+    # Not enough foreground pixels to estimate orientation
+    if len(points) < 20:
+        return 0.0
+
+    # np.where gives (y, x)
+    y = points[:, 0].astype(np.float32)
+    x = points[:, 1].astype(np.float32)
+
+    # Remove extreme outliers so isolated noise has less influence
+    x_low, x_high = np.percentile(x, [2, 98])
+    y_low, y_high = np.percentile(y, [2, 98])
+
+    valid = (
+        (x >= x_low)
+        & (x <= x_high)
+        & (y >= y_low)
+        & (y <= y_high)
+    )
+
+    x = x[valid]
+    y = y[valid]
+
+    if len(x) < 20:
+        return 0.0
+
+    # PCA on foreground coordinates
+    coordinates = np.column_stack((x, y))
+
+    mean, eigenvectors = cv2.PCACompute(
+        coordinates,
+        mean=None
+    )
+
+    principal_vector = eigenvectors[0]
+
+    vx = principal_vector[0]
+    vy = principal_vector[1]
+
+    angle = np.degrees(
+        np.arctan2(vy, vx)
+    )
+
+    # Normalize angle to [-90, 90]
+    if angle > 90:
+        angle -= 180
+
+    if angle < -90:
+        angle += 180
+
+    # Avoid unnecessary correction of nearly-horizontal text
+    if abs(angle) < 1.0:
+        return 0.0
+
+    # Prevent aggressive rotations
+    angle = float(
+        np.clip(
+            angle,
+            -max_angle,
+            max_angle
+        )
+    )
+
+    return angle
+
+
+def deskew_image(image):
+    """
+    Deskew a grayscale PIL image while preserving grayscale information.
+
+    The skew angle is estimated from a temporary binary mask, but
+    rotation is applied to the original grayscale image.
+
+    Returns:
+        PIL.Image.Image: Deskewed grayscale image.
+    """
+
+    image = image.convert("L")
+
+    angle = estimate_skew_angle(image)
+
+    if angle == 0.0:
+        return image
+
+    # PIL's positive rotation is counter-clockwise.
+    # This compensates for the estimated image-coordinate slope.
+    corrected = image.rotate(
+        angle,
+        resample=Image.Resampling.BICUBIC,
+        expand=True,
+        fillcolor=255
+    )
+
+    return corrected
+
+
+# ============================================================
+# GRAYSCALE + DENOISING + DESKEWING TRANSFORM
+# ============================================================
+
+def get_grayscale_denoise_deskew_transform():
+
+    transform = transforms.Compose([
+        transforms.Grayscale(
+            num_output_channels=1
+        ),
+
+        transforms.Lambda(
+            lambda image: image.filter(
+                ImageFilter.MedianFilter(size=3)
+            )
+        ),
+
+        transforms.Lambda(
+            deskew_image
+        ),
+
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
+        ),
+
+        transforms.ToTensor(),
+    ])
+
+    return transform
