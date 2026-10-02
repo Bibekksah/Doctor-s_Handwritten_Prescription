@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from PIL import Image, ImageFilter
 import cv2
 import numpy as np
@@ -9,29 +8,18 @@ import torchvision.transforms as transforms
 # IMAGE CONFIGURATION
 # ============================================================
 
-=======
-from PIL import Image
-import torchvision.transforms as transforms
-
-
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
 IMAGE_HEIGHT = 64
 IMAGE_WIDTH = 256
 
 
-<<<<<<< HEAD
 # ============================================================
 # RESIZE IMAGE WITH PADDING
 # ============================================================
-
-=======
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
 class ResizeWithPadding:
 
     def __init__(
         self,
         height=IMAGE_HEIGHT,
-<<<<<<< HEAD
         width=IMAGE_WIDTH,
         mode="RGB"
     ):
@@ -49,30 +37,12 @@ class ResizeWithPadding:
 
         # Calculate the scaling factor while preserving
         # the original aspect ratio
-=======
-        width=IMAGE_WIDTH
-    ):
-        self.height = height
-        self.width = width
-
-    def __call__(self, image):
-
-        # Always work with RGB
-        image = image.convert("RGB")
-
-        original_width, original_height = image.size
-
-        # Calculate scale while preserving aspect ratio
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
         scale = min(
             self.width / original_width,
             self.height / original_height
         )
 
-<<<<<<< HEAD
         # Calculate the new dimensions after scaling
-=======
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
         new_width = max(
             1,
             int(original_width * scale)
@@ -83,48 +53,30 @@ class ResizeWithPadding:
             int(original_height * scale)
         )
 
-<<<<<<< HEAD
         # Resize the image without distorting the handwriting
-=======
-        # Resize without distorting handwriting
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
         image = image.resize(
             (new_width, new_height),
             Image.Resampling.LANCZOS
         )
 
-<<<<<<< HEAD
         # Create a white background canvas
         canvas = Image.new(
             self.mode,
-=======
-        # Create white background
-        canvas = Image.new(
-            "RGB",
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
             (self.width, self.height),
             "white"
         )
 
-<<<<<<< HEAD
         # Calculate the position required to center
         # the resized image on the canvas
         x = (self.width - new_width) // 2
         y = (self.height - new_height) // 2
 
         # Paste the resized image onto the canvas
-=======
-        # Center the resized image
-        x = (self.width - new_width) // 2
-        y = (self.height - new_height) // 2
-
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
         canvas.paste(image, (x, y))
 
         return canvas
 
 
-<<<<<<< HEAD
 # ============================================================
 # BASELINE TRANSFORM
 # ============================================================
@@ -322,14 +274,6 @@ def get_grayscale_denoise_threshold_transform():
             height=IMAGE_HEIGHT,
             width=IMAGE_WIDTH,
             mode="L"
-=======
-def get_baseline_transform():
-
-    transform = transforms.Compose([
-        ResizeWithPadding(
-            height=IMAGE_HEIGHT,
-            width=IMAGE_WIDTH
->>>>>>> 457675274f9874373bb904f7455bfb4e40a7e687
         ),
 
         transforms.ToTensor(),

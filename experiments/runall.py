@@ -16,6 +16,14 @@ experiments = [
     "experiments.view_preprocessed",
     "experiments.test_preprocessing",
     "experiments.test_dataloader",
+    "experiments.test_grayscale",
+    "experiments.test_denoising",
+    "experiments.test_thresholding",
+    "experiments.test_clahe",
+    "experiments.visualize_clahe",
+    "experiments.visualize_threshold"
+
+
 ]
 
 
