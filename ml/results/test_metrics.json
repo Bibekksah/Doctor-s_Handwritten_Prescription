@@ -1,0 +1,12 @@
+{
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "test_samples": 780,
+    "num_classes": 78,
+    "best_epoch": 15,
+    "best_validation_accuracy": 0.1987179487179487,
+    "test_accuracy": 0.0782051282051282,
+    "test_precision_weighted": 0.08455623036972712,
+    "test_recall_weighted": 0.0782051282051282,
+    "test_f1_weighted": 0.05612813731897276
+}
