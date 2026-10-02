@@ -22,7 +22,9 @@ cv = [
    "CV.test_deskew",
    "CV.visualize_deskew",
    "CV.image_quality",
-   "CV.visualize_image_quality"
+   "CV.visualize_image_quality",
+   "CV.preprocessing_experiments",
+   "CV.visualize_preprocessing_experiments"
 
 ]
 
