@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor's Handwritten Prescription AI</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         MAIN CONTAINER
+    ========================================== -->
+
+    <div class="container">
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="header">
+
+            <h1>
+                Doctor's Handwritten Prescription AI
+            </h1>
+
+            <p>
+                Upload a handwritten prescription or take
+                a photo to analyze it using AI.
+            </p>
+
+        </header>
+
+
+        <!-- =====================================
+             UPLOAD OPTIONS
+        ====================================== -->
+
+        <section class="upload-section">
+
+            <div class="upload-options">
+
+                <!-- Upload from computer -->
+                <label class="upload-btn">
+
+                    📁 Upload Prescription
+
+                    <input
+                        type="file"
+                        id="prescriptionImage"
+                        accept="image/*"
+                        hidden
+                    >
+
+                </label>
+
+
+                <!-- Open camera -->
+                <button
+                    type="button"
+                    class="camera-btn"
+                    id="cameraBtn">
+
+                    📷 Take Photo
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 CAMERA CONTAINER
+            ================================== -->
+
+            <div
+                id="camera-container"
+                class="camera-container">
+
+                <h3>
+                    Take a Prescription Photo
+                </h3>
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline>
+                </video>
+
+
+                <div class="camera-controls">
+
+                    <button
+                        type="button"
+                        id="captureBtn"
+                        class="capture-btn">
+
+                        📸 Capture Photo
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="closeCameraBtn"
+                        class="close-camera-btn">
+
+                        ❌ Close Camera
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 IMAGE PREVIEW
+            ================================== -->
+
+            <div
+                id="preview-container"
+                class="preview-container">
+
+                <h3>
+                    Prescription Preview
+                </h3>
+
+                <img
+                    id="preview"
+                    src=""
+                    alt="Prescription Preview">
+
+            </div>
+
+
+            <!-- =================================
+                 ANALYZE BUTTON
+            ================================== -->
+
+            <button
+                type="button"
+                id="analyzeBtn"
+                class="analyze-btn">
+
+                🔍 Analyze Prescription
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             RESULT SECTION
+        ====================================== -->
+
+        <section
+            id="result"
+            class="result-section">
+
+            <h2>
+                Result
+            </h2>
+
+            <p id="resultText">
+                Upload or capture a prescription to begin.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="footer">
+
+            <p>
+                Doctor's Handwritten Prescription AI
+            </p>
+
+            <p class="warning">
+                ⚠️ This application is for assistance only.
+                Always verify prescriptions with a qualified
+                healthcare professional.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

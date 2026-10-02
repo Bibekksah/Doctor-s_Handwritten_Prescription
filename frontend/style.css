@@ -1,0 +1,341 @@
+/* =========================================
+   GENERAL PAGE
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef4ff;
+    color: #222;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #1f3c88;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   UPLOAD SECTION
+========================================= */
+
+.upload-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   UPLOAD OPTIONS
+========================================= */
+
+.upload-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================
+   COMMON BUTTON STYLE
+========================================= */
+
+.upload-btn,
+.camera-btn,
+.analyze-btn,
+.capture-btn,
+.close-camera-btn {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* =========================================
+   UPLOAD BUTTON
+========================================= */
+
+.upload-btn {
+    display: inline-block;
+    background: #1f3c88;
+    color: white;
+}
+
+.upload-btn:hover {
+    background: #162d68;
+}
+
+
+/* =========================================
+   CAMERA BUTTON
+========================================= */
+
+.camera-btn {
+    background: #16a085;
+    color: white;
+}
+
+.camera-btn:hover {
+    background: #117a65;
+}
+
+
+/* =========================================
+   CAMERA CONTAINER
+========================================= */
+
+.camera-container {
+    display: none;
+    text-align: center;
+    margin: 25px auto;
+    padding: 20px;
+    background: #f5f8ff;
+    border-radius: 12px;
+    border: 1px solid #dbe4f5;
+}
+
+.camera-container h3 {
+    margin-bottom: 15px;
+    color: #1f3c88;
+}
+
+
+/* =========================================
+   CAMERA VIDEO
+========================================= */
+
+#camera {
+    width: 100%;
+    max-width: 600px;
+    max-height: 450px;
+    background: #111;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+
+
+/* =========================================
+   CAMERA CONTROLS
+========================================= */
+
+.camera-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================
+   CAPTURE BUTTON
+========================================= */
+
+.capture-btn {
+    background: #e67e22;
+    color: white;
+}
+
+.capture-btn:hover {
+    background: #ca6f1e;
+}
+
+
+/* =========================================
+   CLOSE CAMERA BUTTON
+========================================= */
+
+.close-camera-btn {
+    background: #c0392b;
+    color: white;
+}
+
+.close-camera-btn:hover {
+    background: #962d22;
+}
+
+
+/* =========================================
+   PREVIEW CONTAINER
+========================================= */
+
+.preview-container {
+    margin: 25px auto;
+    padding: 20px;
+    text-align: center;
+    background: #f8faff;
+    border-radius: 12px;
+    border: 1px solid #dbe4f5;
+}
+
+.preview-container h3 {
+    color: #1f3c88;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   PREVIEW IMAGE
+========================================= */
+
+#preview {
+    display: none;
+    max-width: 100%;
+    max-height: 450px;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+
+/* =========================================
+   ANALYZE BUTTON
+========================================= */
+
+.analyze-btn {
+    display: block;
+    margin: 25px auto 5px;
+    background: #1f3c88;
+    color: white;
+    padding: 14px 30px;
+}
+
+.analyze-btn:hover {
+    background: #162d68;
+}
+
+
+/* =========================================
+   RESULT SECTION
+========================================= */
+
+.result-section {
+    margin-top: 25px;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.result-section h2 {
+    color: #1f3c88;
+    margin-bottom: 15px;
+}
+
+.result-section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    text-align: center;
+    margin: 30px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.footer .warning {
+    margin-top: 8px;
+    color: #9a6b00;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .upload-section {
+        padding: 20px;
+    }
+
+    .upload-options {
+        flex-direction: column;
+    }
+
+    .upload-btn,
+    .camera-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .analyze-btn {
+        width: 100%;
+    }
+
+    #camera {
+        max-height: 350px;
+    }
+
+    .camera-controls {
+        flex-direction: column;
+    }
+
+    .capture-btn,
+    .close-camera-btn {
+        width: 100%;
+    }
+}
