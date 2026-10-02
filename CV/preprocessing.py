@@ -1,34 +1,48 @@
-from PIL import Image
+from PIL import Image, ImageFilter
+import cv2
+import numpy as np
 import torchvision.transforms as transforms
 
+
+# ============================================================
+# IMAGE CONFIGURATION
+# ============================================================
 
 IMAGE_HEIGHT = 64
 IMAGE_WIDTH = 256
 
 
+# ============================================================
+# RESIZE IMAGE WITH PADDING
+# ============================================================
 class ResizeWithPadding:
 
     def __init__(
         self,
         height=IMAGE_HEIGHT,
-        width=IMAGE_WIDTH
+        width=IMAGE_WIDTH,
+        mode="RGB"
     ):
         self.height = height
         self.width = width
+        self.mode = mode
 
     def __call__(self, image):
 
-        # Always work with RGB
-        image = image.convert("RGB")
+        # Convert the image to the requested image mode
+        image = image.convert(self.mode)
 
+        # Get the original image dimensions
         original_width, original_height = image.size
 
-        # Calculate scale while preserving aspect ratio
+        # Calculate the scaling factor while preserving
+        # the original aspect ratio
         scale = min(
             self.width / original_width,
             self.height / original_height
         )
 
+        # Calculate the new dimensions after scaling
         new_width = max(
             1,
             int(original_width * scale)
@@ -39,34 +53,383 @@ class ResizeWithPadding:
             int(original_height * scale)
         )
 
-        # Resize without distorting handwriting
+        # Resize the image without distorting the handwriting
         image = image.resize(
             (new_width, new_height),
             Image.Resampling.LANCZOS
         )
 
-        # Create white background
+        # Create a white background canvas
         canvas = Image.new(
-            "RGB",
+            self.mode,
             (self.width, self.height),
             "white"
         )
 
-        # Center the resized image
+        # Calculate the position required to center
+        # the resized image on the canvas
         x = (self.width - new_width) // 2
         y = (self.height - new_height) // 2
 
+        # Paste the resized image onto the canvas
         canvas.paste(image, (x, y))
 
         return canvas
 
 
+# ============================================================
+# BASELINE TRANSFORM
+# ============================================================
+
 def get_baseline_transform():
 
     transform = transforms.Compose([
+
+        # Resize the image while preserving
+        # its aspect ratio and adding padding
         ResizeWithPadding(
             height=IMAGE_HEIGHT,
-            width=IMAGE_WIDTH
+            width=IMAGE_WIDTH,
+            mode="RGB"
+        ),
+
+        # Convert the PIL image into a PyTorch tensor
+        transforms.ToTensor(),
+    ])
+
+    return transform
+
+
+# ============================================================
+# GRAYSCALE TRANSFORM
+# ============================================================
+
+def get_grayscale_transform():
+
+    transform = transforms.Compose([
+
+        # Convert the image to a single-channel grayscale image
+        transforms.Grayscale(num_output_channels=1),
+
+        # Resize while preserving aspect ratio
+        # and adding white padding
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
+        ),
+
+        # Convert the image into a PyTorch tensor
+        transforms.ToTensor(),
+    ])
+
+    return transform
+
+
+# ============================================================
+# GRAYSCALE + DENOISING TRANSFORM
+# ============================================================
+
+def get_grayscale_denoise_transform():
+
+    transform = transforms.Compose([
+
+        # Convert the image to grayscale
+        transforms.Grayscale(num_output_channels=1),
+
+        # Apply a 3x3 median filter to reduce image noise
+        transforms.Lambda(
+            lambda image: image.filter(
+                ImageFilter.MedianFilter(size=3)
+            )
+        ),
+
+        # Resize while preserving aspect ratio
+        # and adding white padding
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
+        ),
+
+        # Convert the image into a PyTorch tensor
+        transforms.ToTensor(),
+    ])
+
+    return transform
+
+
+# ============================================================
+# CLAHE IMAGE ENHANCEMENT
+# ============================================================
+
+def clahe_enhancement(image):
+    """
+    Apply CLAHE to a grayscale PIL image.
+    Returns a grayscale PIL image.
+    """
+
+    # Convert the PIL image into a NumPy array
+    image_array = np.array(image)
+
+    # Create a CLAHE (Contrast Limited Adaptive
+    # Histogram Equalization) object
+    clahe = cv2.createCLAHE(
+        clipLimit=2.0,
+        tileGridSize=(8, 8)
+    )
+
+    # Apply CLAHE to enhance local image contrast
+    enhanced = clahe.apply(image_array)
+
+    # Convert the enhanced NumPy array back
+    # into a grayscale PIL image
+    return Image.fromarray(enhanced)
+
+# ============================================================
+# GRAYSCALE + DENOISING + CLAHE TRANSFORM
+# ============================================================
+
+def get_grayscale_denoise_clahe_transform():
+
+    transform = transforms.Compose([
+
+        # Convert the image to grayscale
+        transforms.Grayscale(
+            num_output_channels=1
+        ),
+
+        # Apply a 3x3 median filter to reduce noise
+        transforms.Lambda(
+            lambda image: image.filter(
+                ImageFilter.MedianFilter(size=3)
+            )
+        ),
+
+        # Enhance local contrast using CLAHE
+        transforms.Lambda(
+            clahe_enhancement
+        ),
+
+        # Resize while preserving aspect ratio
+        # and adding white padding
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
+        ),
+
+        # Convert the processed image into a PyTorch tensor
+        transforms.ToTensor(),
+    ])
+
+    return transform
+
+
+# ============================================================
+# otsu Thresholding
+# ============================================================
+def otsu_threshold(image):
+    """
+    Apply Otsu's global thresholding to a grayscale PIL image.
+
+    Returns:
+        PIL.Image.Image: Binary grayscale image.
+    """
+
+    image_array = np.array(image)
+
+    _, thresholded = cv2.threshold(
+        image_array,
+        0,
+        255,
+        cv2.THRESH_BINARY + cv2.THRESH_OTSU
+    )
+
+    return Image.fromarray(thresholded)
+
+
+# ============================================================
+# GRAYSCALE + DENOISING + Thresholding TRANSFORM
+# ============================================================
+def get_grayscale_denoise_threshold_transform():
+
+    transform = transforms.Compose([
+        transforms.Grayscale(
+            num_output_channels=1
+        ),
+
+        transforms.Lambda(
+            lambda image: image.filter(
+                ImageFilter.MedianFilter(size=3)
+            )
+        ),
+
+        transforms.Lambda(
+            otsu_threshold
+        ),
+
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
+        ),
+
+        transforms.ToTensor(),
+    ])
+
+    return transform
+
+# ============================================================
+# SKEW CORRECTION
+# ============================================================
+
+def estimate_skew_angle(image, max_angle=12.0):
+    """
+    Estimate the dominant skew angle of a grayscale PIL image.
+
+    A temporary Otsu threshold is used only for angle estimation.
+    The original grayscale image is not binarized.
+
+    Returns:
+        float: Estimated skew angle in degrees.
+    """
+
+    image_array = np.array(image)
+
+    # Temporary foreground mask for angle estimation
+    _, binary = cv2.threshold(
+        image_array,
+        0,
+        255,
+        cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
+    )
+
+    # Get foreground pixel coordinates
+    points = np.column_stack(
+        np.where(binary > 0)
+    )
+
+    # Not enough foreground pixels to estimate orientation
+    if len(points) < 20:
+        return 0.0
+
+    # np.where gives (y, x)
+    y = points[:, 0].astype(np.float32)
+    x = points[:, 1].astype(np.float32)
+
+    # Remove extreme outliers so isolated noise has less influence
+    x_low, x_high = np.percentile(x, [2, 98])
+    y_low, y_high = np.percentile(y, [2, 98])
+
+    valid = (
+        (x >= x_low)
+        & (x <= x_high)
+        & (y >= y_low)
+        & (y <= y_high)
+    )
+
+    x = x[valid]
+    y = y[valid]
+
+    if len(x) < 20:
+        return 0.0
+
+    # PCA on foreground coordinates
+    coordinates = np.column_stack((x, y))
+
+    mean, eigenvectors = cv2.PCACompute(
+        coordinates,
+        mean=None
+    )
+
+    principal_vector = eigenvectors[0]
+
+    vx = principal_vector[0]
+    vy = principal_vector[1]
+
+    angle = np.degrees(
+        np.arctan2(vy, vx)
+    )
+
+    # Normalize angle to [-90, 90]
+    if angle > 90:
+        angle -= 180
+
+    if angle < -90:
+        angle += 180
+
+    # Avoid unnecessary correction of nearly-horizontal text
+    if abs(angle) < 1.0:
+        return 0.0
+
+    # Prevent aggressive rotations
+    angle = float(
+        np.clip(
+            angle,
+            -max_angle,
+            max_angle
+        )
+    )
+
+    return angle
+
+
+def deskew_image(image):
+    """
+    Deskew a grayscale PIL image while preserving grayscale information.
+
+    The skew angle is estimated from a temporary binary mask, but
+    rotation is applied to the original grayscale image.
+
+    Returns:
+        PIL.Image.Image: Deskewed grayscale image.
+    """
+
+    image = image.convert("L")
+
+    angle = estimate_skew_angle(image)
+
+    if angle == 0.0:
+        return image
+
+    # PIL's positive rotation is counter-clockwise.
+    # This compensates for the estimated image-coordinate slope.
+    corrected = image.rotate(
+        angle,
+        resample=Image.Resampling.BICUBIC,
+        expand=True,
+        fillcolor=255
+    )
+
+    return corrected
+
+
+# ============================================================
+# GRAYSCALE + DENOISING + DESKEWING TRANSFORM
+# ============================================================
+
+def get_grayscale_denoise_deskew_transform():
+
+    transform = transforms.Compose([
+        transforms.Grayscale(
+            num_output_channels=1
+        ),
+
+        transforms.Lambda(
+            lambda image: image.filter(
+                ImageFilter.MedianFilter(size=3)
+            )
+        ),
+
+        transforms.Lambda(
+            deskew_image
+        ),
+
+        ResizeWithPadding(
+            height=IMAGE_HEIGHT,
+            width=IMAGE_WIDTH,
+            mode="L"
         ),
 
         transforms.ToTensor(),

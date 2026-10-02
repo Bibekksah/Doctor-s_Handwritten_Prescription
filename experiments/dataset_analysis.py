@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from pathlib import Path
 import pandas as pd
 
@@ -55,20 +56,43 @@ print("Checking for missing images in the dataset...")
 train_images = DATASET_ROOT / "Training" / "training_words"
 val_images = DATASET_ROOT / "Validation" / "validation_words"
 test_images = DATASET_ROOT / "Testing" / "testing_words"
+=======
+import sys
+from pathlib import Path
+import pandas as pd
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
+CSV_PATH = PROJECT_ROOT / "data" / "metadata" / "dataset.csv"
+>>>>>>> origin/computervision
 
 
-def check_images(df, image_dir):
-    missing = []
+def main():
+    print("=" * 60)
+    print("DATASET ANALYSIS")
+    print("=" * 60)
 
-    for image_name in df["IMAGE"]:
-        image_path = image_dir / str(image_name)
+    if not CSV_PATH.exists():
+        raise FileNotFoundError(f"Dataset CSV not found at {CSV_PATH}")
 
-        if not image_path.exists():
-            missing.append(image_name)
+    df = pd.read_csv(CSV_PATH)
 
-    return missing
+    print(f"Total samples: {len(df)}")
+    if "split" in df.columns:
+        print("\nSplit Distribution:")
+        print(df["split"].value_counts())
+
+    if "medicine_name" in df.columns:
+        print(f"\nUnique Medicines: {df['medicine_name'].nunique()}")
+    if "generic_name" in df.columns:
+        print(f"Unique Generics: {df['generic_name'].nunique()}")
+
+    print("=" * 60)
 
 
+<<<<<<< HEAD
 train_missing = check_images(train, train_images)
 validation_missing = check_images(validation, val_images)
 test_missing = check_images(test, test_images)
@@ -82,3 +106,7 @@ print("\n===============================================================")
 print("Checking class distribution in the dataset...")
 print("\nTraining class distribution:")
 print(train["MEDICINE_NAME"].value_counts())
+=======
+if __name__ == "__main__":
+    main()
+>>>>>>> origin/computervision
