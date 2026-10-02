@@ -8,16 +8,12 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.append(str(PROJECT_ROOT))
 
 experiments = [
-    "experiments.dataset_analysis",
-    "experiments.check_metadata",
-    "experiments.inspect_images",
-    "experiments.view_sample",
-    "experiments.test_dataset",
-    "experiments.view_preprocessed",
-    "experiments.test_preprocessing",
-    "experiments.test_dataloader",
-    "experiments.test_grayscale"
-
+   "CV.test_denoising",
+   "CV.test_grayscale",
+   "CV.test_thresholding",
+   "CV.test_clahe",
+   "CV.visualize_clahe",
+   "CV.visualize_threshold"
 
 ]
 
