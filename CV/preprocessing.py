@@ -186,30 +186,6 @@ def clahe_enhancement(image):
     # into a grayscale PIL image
     return Image.fromarray(enhanced)
 
-
-# ============================================================
-# otsu Thresholding
-# ============================================================
-def otsu_threshold(image):
-    """
-    Apply Otsu's global thresholding to a grayscale PIL image.
-
-    Returns:
-        PIL.Image.Image: Binary grayscale image.
-    """
-
-    image_array = np.array(image)
-
-    _, thresholded = cv2.threshold(
-        image_array,
-        0,
-        255,
-        cv2.THRESH_BINARY + cv2.THRESH_OTSU
-    )
-
-    return Image.fromarray(thresholded)
-
-
 # ============================================================
 # GRAYSCALE + DENOISING + CLAHE TRANSFORM
 # ============================================================
@@ -248,6 +224,29 @@ def get_grayscale_denoise_clahe_transform():
     ])
 
     return transform
+
+
+# ============================================================
+# otsu Thresholding
+# ============================================================
+def otsu_threshold(image):
+    """
+    Apply Otsu's global thresholding to a grayscale PIL image.
+
+    Returns:
+        PIL.Image.Image: Binary grayscale image.
+    """
+
+    image_array = np.array(image)
+
+    _, thresholded = cv2.threshold(
+        image_array,
+        0,
+        255,
+        cv2.THRESH_BINARY + cv2.THRESH_OTSU
+    )
+
+    return Image.fromarray(thresholded)
 
 
 # ============================================================
