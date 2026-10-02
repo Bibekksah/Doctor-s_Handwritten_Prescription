@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 BASE = Path(
-    "data/metadata/Doctor’s Handwritten Prescription BD dataset"
+    "Doctor-s_Handwritten_Prescription/data/metadata/Doctor’s Handwritten Prescription BD dataset"
 )
 
 datasets = {
@@ -43,7 +43,7 @@ for split, info in datasets.items():
 
 dataset = pd.DataFrame(all_data)
 
-output_path = Path(r"data/metadata/dataset.csv")
+output_path = Path(r"Doctor-s_Handwritten_Prescription/data/metadata/dataset.csv")
 
 dataset.to_csv(output_path, index=False)
 

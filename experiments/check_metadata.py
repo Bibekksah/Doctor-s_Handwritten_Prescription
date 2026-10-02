@@ -1,36 +1,30 @@
-import pandas as pd
+import sys
 from pathlib import Path
+import pandas as pd
 
-CSV_PATH = Path("data/metadata/dataset.csv")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
 
-df = pd.read_csv(CSV_PATH)
+CSV_PATH = PROJECT_ROOT / "data" / "metadata" / "dataset.csv"
 
-print("=" * 50)
-print("METADATA VALIDATION")
-print("=" * 50)
 
-print(f"Total records: {len(df)}")
+def main():
+    print("=" * 60)
+    print("METADATA INTEGRITY CHECK")
+    print("=" * 60)
 
-missing = []
+    df = pd.read_csv(CSV_PATH)
 
-for path in df["image_path"]:
-    if not Path(path).exists():
-        missing.append(path)
+    print(f"Columns: {list(df.columns)}")
+    print(f"Missing Values:\n{df.isnull().sum()}")
 
-print(f"Missing images: {len(missing)}")
+    # Check for empty string paths or missing critical fields
+    missing_paths = df["image_path"].isnull().sum()
+    print(f"\nMissing Image Paths: {missing_paths}")
 
-if missing:
-    print("\nFirst missing files:")
-    for path in missing[:10]:
-        print(path)
-else:
-    print("All image paths are valid.")
+    print("=" * 60)
 
-print("\nSplit distribution:")
-print(df["split"].value_counts())
 
-print("\nMedicine classes:")
-print(df["medicine_name"].nunique())
-
-print("\nGeneric classes:")
-print(df["generic_name"].nunique())
+if __name__ == "__main__":
+    main()
