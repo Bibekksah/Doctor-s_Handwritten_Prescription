@@ -20,7 +20,9 @@ cv = [
    "CV.visualize_clahe",
    "CV.visualize_threshold",
    "CV.test_deskew",
-   "CV.visualize_deskew"
+   "CV.visualize_deskew",
+   "CV.image_quality",
+   "CV.visualize_image_quality"
 
 ]
 
