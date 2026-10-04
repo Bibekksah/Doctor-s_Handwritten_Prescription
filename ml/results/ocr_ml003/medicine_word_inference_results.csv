@@ -1,0 +1,53 @@
+region_id,segment_id,ocr_text,segment_path,top1_medicine,top1_confidence,top1_class_id,top2_medicine,top2_confidence,top2_class_id,top3_medicine,top3_confidence,top3_class_id
+1,1,SAI CLINIC,ml/results/ocr_ml003/medicine_word_segments_p1/region_01/segment_01.png,Ketotab,0.511371,40,Nexum,0.191253,57,Nidazyl,0.181370,58
+1,2,SAI CLINIC,ml/results/ocr_ml003/medicine_word_segments_p1/region_01/segment_02.png,Nexum,0.895930,57,Nidazyl,0.027099,58,Nizoder,0.026056,59
+2,1,Dr. Y. Lavanya,ml/results/ocr_ml003/medicine_word_segments_p1/region_02/segment_01.png,Ketotab,0.673416,40,Nexum,0.193374,57,Ketoral,0.035559,39
+3,1,"Near Ambedkar Staue, Miyapur",ml/results/ocr_ml003/medicine_word_segments_p1/region_03/segment_01.png,Ketotab,0.747728,40,Nexum,0.032534,57,Nidazyl,0.031738,58
+3,2,"Near Ambedkar Staue, Miyapur",ml/results/ocr_ml003/medicine_word_segments_p1/region_03/segment_02.png,Ketotab,0.522872,40,Nidazyl,0.161522,58,Nexum,0.032634,57
+3,3,"Near Ambedkar Staue, Miyapur",ml/results/ocr_ml003/medicine_word_segments_p1/region_03/segment_03.png,Az,0.909824,6,Diflu,0.038816,22,Rhinil,0.021313,66
+4,1,De K. Chanakya Chandra Katar,ml/results/ocr_ml003/medicine_word_segments_p1/region_04/segment_01.png,Ketotab,0.245678,40,Tridosil,0.213882,74,Tamen,0.157381,72
+5,1,Hyderabad,ml/results/ocr_ml003/medicine_word_segments_p1/region_05/segment_01.png,Ketotab,0.977340,40,Nexum,0.008387,57,Flexilax,0.003398,36
+6,1,Begd No :60237,ml/results/ocr_ml003/medicine_word_segments_p1/region_06/segment_01.png,Diflu,0.377607,22,Az,0.213909,6,Ketotab,0.113423,40
+6,2,Begd No :60237,ml/results/ocr_ml003/medicine_word_segments_p1/region_06/segment_02.png,Az,0.595835,6,Diflu,0.297961,22,Rhinil,0.025431,66
+7,1,H00S,ml/results/ocr_ml003/medicine_word_segments_p1/region_07/segment_01.png,Diflu,0.386048,22,Az,0.340757,6,Ketotab,0.058315,40
+8,1,Tet,ml/results/ocr_ml003/medicine_word_segments_p1/region_08/segment_01.png,Az,0.752243,6,Diflu,0.158949,22,Rhinil,0.022400,66
+9,1,Date tnltet 2022,ml/results/ocr_ml003/medicine_word_segments_p1/region_09/segment_01.png,Ketotab,0.760650,40,Ketoral,0.056490,39,Nexum,0.044550,57
+10,1,Name,ml/results/ocr_ml003/medicine_word_segments_p1/region_10/segment_01.png,Az,0.506638,6,Diflu,0.158973,22,Rhinil,0.108128,66
+11,1,Age / Gonder,ml/results/ocr_ml003/medicine_word_segments_p1/region_11/segment_01.png,Ketotab,0.651710,40,Ketoral,0.115881,39,Nexum,0.104127,57
+12,1,to yoe /Mal pmone No.,ml/results/ocr_ml003/medicine_word_segments_p1/region_12/segment_01.png,Ketotab,0.994458,40,Nexum,0.003846,57,Ketoral,0.000719,39
+13,1,Address,ml/results/ocr_ml003/medicine_word_segments_p1/region_13/segment_01.png,Ketotab,0.818645,40,Ketoral,0.066270,39,Nexum,0.015652,57
+14,1,R,ml/results/ocr_ml003/medicine_word_segments_p1/region_14/segment_01.png,Az,0.969100,6,Napa,0.017755,54,Rhinil,0.005085,66
+15,1,K/e10- Hypestarion stypthyr,ml/results/ocr_ml003/medicine_word_segments_p1/region_15/segment_01.png,Az,0.338665,6,Rhinil,0.235297,66,Diflu,0.149944,22
+15,2,K/e10- Hypestarion stypthyr,ml/results/ocr_ml003/medicine_word_segments_p1/region_15/segment_02.png,Ketotab,0.815109,40,Ketoral,0.121042,39,Nexum,0.013015,57
+15,3,K/e10- Hypestarion stypthyr,ml/results/ocr_ml003/medicine_word_segments_p1/region_15/segment_03.png,Ketotab,0.546488,40,Az,0.119603,6,Diflu,0.102662,22
+16,1,ale -Freve sinw 3 days,ml/results/ocr_ml003/medicine_word_segments_p1/region_16/segment_01.png,Az,0.612687,6,Rhinil,0.172248,66,Diflu,0.129292,22
+16,2,ale -Freve sinw 3 days,ml/results/ocr_ml003/medicine_word_segments_p1/region_16/segment_02.png,Ketotab,0.968854,40,Rhinil,0.007066,66,Ketoral,0.005220,39
+16,3,ale -Freve sinw 3 days,ml/results/ocr_ml003/medicine_word_segments_p1/region_16/segment_03.png,Az,0.952512,6,Diflu,0.027201,22,Rhinil,0.008003,66
+16,4,ale -Freve sinw 3 days,ml/results/ocr_ml003/medicine_word_segments_p1/region_16/segment_04.png,Az,0.778364,6,Diflu,0.117290,22,Rhinil,0.056517,66
+17,1,2,ml/results/ocr_ml003/medicine_word_segments_p1/region_17/segment_01.png,Az,0.996239,6,Rhinil,0.000871,66,Napa,0.000518,54
+18,1,BP-1250/20,ml/results/ocr_ml003/medicine_word_segments_p1/region_18/segment_01.png,Az,0.847061,6,Diflu,0.095405,22,Rhinil,0.021794,66
+18,2,BP-1250/20,ml/results/ocr_ml003/medicine_word_segments_p1/region_18/segment_02.png,Rhinil,0.300641,66,Az,0.286820,6,Diflu,0.198671,22
+19,1,Dak Hamle Snydy,ml/results/ocr_ml003/medicine_word_segments_p1/region_19/segment_01.png,Ketotab,0.994404,40,Nexum,0.001320,57,Ketoral,0.001048,39
+19,2,Dak Hamle Snydy,ml/results/ocr_ml003/medicine_word_segments_p1/region_19/segment_02.png,Az,0.834088,6,Diflu,0.091525,22,Rhinil,0.031850,66
+20,1,PR. 80 bpm,ml/results/ocr_ml003/medicine_word_segments_p1/region_20/segment_01.png,Az,0.924248,6,Diflu,0.039314,22,Rhinil,0.014988,66
+20,2,PR. 80 bpm,ml/results/ocr_ml003/medicine_word_segments_p1/region_20/segment_02.png,Az,0.615863,6,Diflu,0.218583,22,Rhinil,0.094320,66
+21,1,0y,ml/results/ocr_ml003/medicine_word_segments_p1/region_21/segment_01.png,Az,0.466630,6,Ritch,0.159044,67,Ketotab,0.118192,40
+22,1,rab.Arwatsmp -20dy,ml/results/ocr_ml003/medicine_word_segments_p1/region_22/segment_01.png,Ketotab,0.996821,40,Nexum,0.001333,57,Ketoral,0.000497,39
+23,1,Dwerligels,ml/results/ocr_ml003/medicine_word_segments_p1/region_23/segment_01.png,Az,0.597297,6,Diflu,0.185180,22,Rhinil,0.088088,66
+24,1,0,ml/results/ocr_ml003/medicine_word_segments_p1/region_24/segment_01.png,Az,0.883334,6,Diflu,0.069640,22,Rhinil,0.017881,66
+24,2,0,ml/results/ocr_ml003/medicine_word_segments_p1/region_24/segment_02.png,Az,0.901849,6,Diflu,0.049824,22,Rhinil,0.017309,66
+25,1,2ahx-3,ml/results/ocr_ml003/medicine_word_segments_p1/region_25/segment_01.png,Ketotab,0.993307,40,Ketoral,0.001374,39,Rozith,0.000825,70
+25,2,2ahx-3,ml/results/ocr_ml003/medicine_word_segments_p1/region_25/segment_02.png,Az,0.982338,6,Rhinil,0.006887,66,Diflu,0.003917,22
+25,3,2ahx-3,ml/results/ocr_ml003/medicine_word_segments_p1/region_25/segment_03.png,Az,0.801622,6,Diflu,0.092020,22,Rhinil,0.056114,66
+26,1,OEP,ml/results/ocr_ml003/medicine_word_segments_p1/region_26/segment_01.png,Az,0.566684,6,Rhinil,0.181971,66,Ketotab,0.111591,40
+27,1,CVE,ml/results/ocr_ml003/medicine_word_segments_p1/region_27/segment_01.png,Diflu,0.222505,22,Ketotab,0.222248,40,Az,0.211844,6
+28,1,Toh Splefot20d,ml/results/ocr_ml003/medicine_word_segments_p1/region_28/segment_01.png,Az,0.611105,6,Rhinil,0.138451,66,Diflu,0.090906,22
+28,2,Toh Splefot20d,ml/results/ocr_ml003/medicine_word_segments_p1/region_28/segment_02.png,Az,0.430773,6,Rhinil,0.264630,66,Ketotab,0.167297,40
+28,3,Toh Splefot20d,ml/results/ocr_ml003/medicine_word_segments_p1/region_28/segment_03.png,Az,0.949109,6,Diflu,0.025956,22,Rhinil,0.011550,66
+28,4,Toh Splefot20d,ml/results/ocr_ml003/medicine_word_segments_p1/region_28/segment_04.png,Az,0.822536,6,Diflu,0.090978,22,Rhinil,0.034695,66
+29,1,ECG,ml/results/ocr_ml003/medicine_word_segments_p1/region_29/segment_01.png,Rhinil,0.339506,66,Az,0.304717,6,Ketotab,0.123030,40
+30,1,xー00,ml/results/ocr_ml003/medicine_word_segments_p1/region_30/segment_01.png,Az,0.928373,6,Diflu,0.040619,22,Rhinil,0.012541,66
+30,2,xー00,ml/results/ocr_ml003/medicine_word_segments_p1/region_30/segment_02.png,Ketotab,0.538586,40,Az,0.231166,6,Rhinil,0.047675,66
+31,1,上#,ml/results/ocr_ml003/medicine_word_segments_p1/region_31/segment_01.png,Az,0.581408,6,Diflu,0.226639,22,Rhinil,0.048947,66
+32,1,Zgagm,ml/results/ocr_ml003/medicine_word_segments_p1/region_32/segment_01.png,Az,0.918538,6,Rhinil,0.029306,66,Diflu,0.022921,22
+33,1,Dengu,ml/results/ocr_ml003/medicine_word_segments_p1/region_33/segment_01.png,Rhinil,0.628830,66,Ketotab,0.265812,40,Az,0.028627,6

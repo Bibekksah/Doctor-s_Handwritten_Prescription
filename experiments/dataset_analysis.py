@@ -1,112 +1,209 @@
-<<<<<<< HEAD
 from pathlib import Path
 import pandas as pd
+
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DATASET_ROOT = (
+CSV_PATH = (
     PROJECT_ROOT
     / "data"
     / "metadata"
-    / "Doctor’s Handwritten Prescription BD dataset"
+    / "dataset.csv"
 )
 
-train_csv = DATASET_ROOT / "Training" / "training_labels.csv"
-validation_csv = DATASET_ROOT / "Validation" / "validation_labels.csv"
-test_csv = DATASET_ROOT / "Testing" / "testing_labels.csv"
 
-train = pd.read_csv(train_csv)
-validation = pd.read_csv(validation_csv)
-test = pd.read_csv(test_csv)
-print("=" * 50)
-print("DATASET REPORT")
-print("=" * 50)
+def resolve_image_path(image_path):
+    """Resolve a project-relative image path."""
 
-print("\nTraining samples:", len(train))
-print("Validation samples:", len(validation))
-print("Testing samples:", len(test))
+    path = Path(str(image_path))
 
-print("\nTotal samples:", len(train) + len(validation) + len(test))
+    if path.is_absolute() and path.exists():
+        return path
 
-print("\nNumber of medicine classes:")
-print("Training:", train["MEDICINE_NAME"].nunique())
-print("Validation:", validation["MEDICINE_NAME"].nunique())
-print("Testing:", test["MEDICINE_NAME"].nunique())
+    candidate = PROJECT_ROOT / path
 
-print("\nNumber of generic medicines:")
-print("Training:", train["GENERIC_NAME"].nunique())
-print("Validation:", validation["GENERIC_NAME"].nunique())
-print("Testing:", test["GENERIC_NAME"].nunique())
+    if candidate.exists():
+        return candidate
 
-print("\nTop medicine classes:")
-print(train["MEDICINE_NAME"].value_counts().head(20))
+    # Compatibility fallback for duplicated project paths
+    parts = path.parts
 
-print("\nMissing values:")
-print(train.isnull().sum())
+    for i, part in enumerate(parts):
+        if part == "data":
+            candidate = PROJECT_ROOT / Path(*parts[i:])
 
-print("\nDuplicate rows:")
-print(train.duplicated().sum())
+            if candidate.exists():
+                return candidate
 
-print("\nDataset columns:")
-print(train.columns.tolist())
-
-print("===============================================================")
-# Check for missing images in our  dataset
-print("Checking for missing images in the dataset...")
-train_images = DATASET_ROOT / "Training" / "training_words"
-val_images = DATASET_ROOT / "Validation" / "validation_words"
-test_images = DATASET_ROOT / "Testing" / "testing_words"
-=======
-import sys
-from pathlib import Path
-import pandas as pd
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.append(str(PROJECT_ROOT))
-
-CSV_PATH = PROJECT_ROOT / "data" / "metadata" / "dataset.csv"
->>>>>>> origin/computervision
+    return None
 
 
 def main():
+
     print("=" * 60)
     print("DATASET ANALYSIS")
     print("=" * 60)
 
     if not CSV_PATH.exists():
-        raise FileNotFoundError(f"Dataset CSV not found at {CSV_PATH}")
+        raise FileNotFoundError(
+            f"Dataset CSV not found at: {CSV_PATH}"
+        )
 
     df = pd.read_csv(CSV_PATH)
 
-    print(f"Total samples: {len(df)}")
+    # ---------------------------------------------------------
+    # Basic information
+    # ---------------------------------------------------------
+
+    print(f"\nMetadata file:")
+    print(CSV_PATH)
+
+    print(f"\nTotal samples: {len(df)}")
+
+    print("\nColumns:")
+    print(df.columns.tolist())
+
+    # ---------------------------------------------------------
+    # Missing values
+    # ---------------------------------------------------------
+
+    print("\nMissing values:")
+    print(df.isnull().sum())
+
+    # ---------------------------------------------------------
+    # Split distribution
+    # ---------------------------------------------------------
+
     if "split" in df.columns:
+
         print("\nSplit Distribution:")
         print(df["split"].value_counts())
 
-    if "medicine_name" in df.columns:
-        print(f"\nUnique Medicines: {df['medicine_name'].nunique()}")
-    if "generic_name" in df.columns:
-        print(f"Unique Generics: {df['generic_name'].nunique()}")
+    # ---------------------------------------------------------
+    # Medicine classes
+    # ---------------------------------------------------------
 
+    if "medicine_name" in df.columns:
+
+        print(
+            f"\nUnique medicine classes: "
+            f"{df['medicine_name'].nunique()}"
+        )
+
+        print("\nMedicine class distribution:")
+
+        print(
+            df["medicine_name"]
+            .value_counts()
+            .head(20)
+        )
+
+    # ---------------------------------------------------------
+    # Generic medicines
+    # ---------------------------------------------------------
+
+    if "generic_name" in df.columns:
+
+        print(
+            f"\nUnique generic medicines: "
+            f"{df['generic_name'].nunique()}"
+        )
+
+    # ---------------------------------------------------------
+    # Duplicate rows
+    # ---------------------------------------------------------
+
+    print("\nDuplicate rows:")
+    print(df.duplicated().sum())
+
+    # ---------------------------------------------------------
+    # Image path validation
+    # ---------------------------------------------------------
+
+    print("\nChecking image paths...")
+
+    missing_images = []
+
+    for image_path in df["image_path"]:
+
+        resolved = resolve_image_path(image_path)
+
+        if resolved is None:
+            missing_images.append(image_path)
+
+    print(f"Missing images: {len(missing_images)}")
+
+    if missing_images:
+
+        print("\nFirst missing images:")
+
+        for path in missing_images[:10]:
+            print(path)
+
+    # ---------------------------------------------------------
+    # Per-split analysis
+    # ---------------------------------------------------------
+
+    if "split" in df.columns:
+
+        print("\n" + "=" * 60)
+        print("PER-SPLIT ANALYSIS")
+        print("=" * 60)
+
+        for split_name in ["train", "validation", "test"]:
+
+            split_df = df[df["split"] == split_name]
+
+            if split_df.empty:
+                continue
+
+            print(f"\n{split_name.upper()}")
+
+            print(f"Samples: {len(split_df)}")
+
+            print(
+                "Medicine classes:",
+                split_df["medicine_name"].nunique()
+            )
+
+            print(
+                "Generic classes:",
+                split_df["generic_name"].nunique()
+            )
+
+            print(
+                "Missing values:",
+                split_df.isnull().sum().sum()
+            )
+
+            print(
+                "Duplicate rows:",
+                split_df.duplicated().sum()
+            )
+
+    # ---------------------------------------------------------
+    # Final status
+    # ---------------------------------------------------------
+
+    print("\n" + "=" * 60)
+    print("DATASET ANALYSIS COMPLETE")
     print("=" * 60)
 
+    if len(missing_images) == 0:
+        print("Image path check: PASS")
+    else:
+        print("Image path check: FAIL")
 
-<<<<<<< HEAD
-train_missing = check_images(train, train_images)
-validation_missing = check_images(validation, val_images)
-test_missing = check_images(test, test_images)
+    if df.isnull().sum().sum() == 0:
+        print("Missing value check: PASS")
+    else:
+        print("Missing value check: FAIL")
 
-print("\nMissing training images:", len(train_missing))
-print("Missing validation images:", len(validation_missing))
-print("Missing testing images:", len(test_missing))
+    if df.duplicated().sum() == 0:
+        print("Duplicate check: PASS")
+    else:
+        print("Duplicate check: FAIL")
 
-print("\n===============================================================")
-# checking class distribution in the dataset
-print("Checking class distribution in the dataset...")
-print("\nTraining class distribution:")
-print(train["MEDICINE_NAME"].value_counts())
-=======
+
 if __name__ == "__main__":
     main()
->>>>>>> origin/computervision

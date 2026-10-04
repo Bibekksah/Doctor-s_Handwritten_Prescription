@@ -38,3 +38,81 @@ docs/
 ├── API_SPECIFICATION.md
 ├── EXPERIMENT_LOG.md
 └── DEPLOYMENT_PLAN.md
+
+
+
+
+
+
+
+ml/
+├── __init__.py
+│
+├── class_mapping.py
+├── dataloader.py
+├── dataset.py
+├── device.py
+├── inference.py
+│
+├── model_ml003.py
+├── train_ml003.py
+├── evaluate_ml003.py
+│
+├── ocr.py
+├── medicine_verification_final.py
+├── prescription_service.py
+│
+├── checkpoints/
+├── config/
+├── optimization/
+├── results/
+│
+└── archive/
+    ├── model.py.
+    ├── train.py.
+    ├── evaluate.py.
+    ├── augmentation.py.
+    ├── train_augmented.py.
+    ├── model_ml002.py.
+    ├── train_ml002.py.
+    ├── evaluate_ml001.py.
+    ├── evaluate_ml002.py.
+    ├── candidate_filter.py.
+    ├── medicine_candidate_gate.py.
+    ├── medicine_candidate_inference.py.
+    ├── medicine_candidate_matcher.py.
+    ├── medicine_verification.py
+    ├── medicine_verification_v2.py.
+    ├── medicine_verification_v3.py.
+    ├── medicine_word_inference.py.
+    ├── medicine_word_segmenter.py
+    └── medicine_word_segmenter_p0.py
+
+
+
+
+experiments/
+│
+├── __init__.py
+│
+├── check_metadata.py
+├── dataset_analysis.py
+├── test_dataset.py
+├── test_dataloader.py
+├── test_ocr.py
+├── test_end_to_end.py
+│
+└── archive/
+    ├── analyze_predictions.py
+    ├── inspect_images.py
+    ├── make_ocr_contact_sheet.py
+    ├── make_segment_contact_sheet.py
+    ├── test_existing_ocr.py
+    ├── test_inference.py
+    ├── test_model.py
+    ├── test_ocr_ml003_integration.py
+    ├── test_preprocessing.py
+    ├── view_preprocessed.py
+    ├── view_sample.py
+    ├── run_allfile.py
+    └── runall.py

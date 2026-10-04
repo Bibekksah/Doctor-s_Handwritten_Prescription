@@ -27,15 +27,15 @@
         "weighted_f1": 0.8864661556153837
     },
     "latency": {
-        "mean_ms": 6.065868790055902,
-        "median_ms": 6.0427099992921285,
-        "min_ms": 5.837853999764775,
-        "max_ms": 7.434740000462625,
-        "throughput_images_per_second": 164.85684649812285
+        "mean_ms": 3.181678119872231,
+        "median_ms": 3.1675165009801276,
+        "min_ms": 3.06606300000567,
+        "max_ms": 3.9968639975995757,
+        "throughput_images_per_second": 314.2995495849083
     },
     "test_inference": {
-        "mean_latency_ms": 12.026709512840684,
-        "throughput_images_per_second": 83.14826253451282
+        "mean_latency_ms": 7.075671339659423,
+        "throughput_images_per_second": 141.32934558378363
     },
     "pytorch_reference": {
         "test_accuracy_percent": 89.1,

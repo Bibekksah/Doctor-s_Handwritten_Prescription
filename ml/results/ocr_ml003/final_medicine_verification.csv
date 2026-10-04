@@ -1,0 +1,37 @@
+region_id,ocr_text,ocr_confidence,ml_top1_medicine,ml_top1_confidence,ml_top2_medicine,ml_top2_confidence,ml_top3_medicine,ml_top3_confidence,ocr_ml_similarity,evidence_score,decision,reason
+1,SAI CLINIC,0.999689,Az,0.488320,Etizin,0.109626,Diflu,0.102436,0.181818,-5,NON_MEDICINE,non-medicine keyword: clinic; OCR/medicine text disagreement
+2,Dr. . Lavange,0.525521,Diflu,0.528225,Az,0.139840,Etizin,0.075982,0.285714,-7,NON_MEDICINE,non-medicine keyword: dr; OCR/medicine text disagreement
+3,Rigit ts: 9900,0.462425,Diflu,0.238854,Ketotab,0.208561,Ritch,0.124364,0.125000,-1,REVIEW,OCR/medicine text disagreement
+4,HE,0.441866,Diflu,0.512891,Az,0.325307,Ritch,0.031682,0.000000,-3,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+5,"Near Ambedkat Staue, Miyapur",0.868846,Nexum,0.919999,Exium,0.017004,Nizoder,0.008621,0.206897,0,REVIEW,OCR/medicine text disagreement
+6,De K Chane Char Kmr,0.552004,Ketotab,0.227007,Nexum,0.123712,Diflu,0.080662,0.181818,-1,REVIEW,OCR/medicine text disagreement
+7,Hyderabad,0.971771,Az,0.405651,Ketotab,0.252171,Ritch,0.059029,0.181818,-5,NON_MEDICINE,non-medicine keyword: hyderabad; OCR/medicine text disagreement
+8,Reged Nao.:66237,0.574492,Ketotab,0.778388,Nexum,0.122118,Ketoral,0.030894,0.200000,-1,REVIEW,OCR/medicine text disagreement
+9,Hins,0.679574,Diflu,0.545287,Az,0.192238,Ritch,0.038771,0.222222,0,REVIEW,OCR/medicine text disagreement
+10,Tet,0.918694,Az,0.854190,Diflu,0.093773,Rhinil,0.015237,0.000000,-1,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+11,onte tnltiet 2022,0.606935,Ketotab,0.937125,Diflu,0.007344,Rhinil,0.006767,0.272727,0,REVIEW,OCR/medicine text disagreement
+12,Name,0.958309,Az,0.613445,Diflu,0.282206,Fexo,0.017849,0.333333,-5,NON_MEDICINE,non-medicine keyword: name; OCR/medicine text disagreement
+13,Age / Gonder,0.980537,Ketotab,0.276279,Nexum,0.247937,Diflu,0.093427,0.125000,-5,NON_MEDICINE,"non-medicine keyword: age,gonder; OCR/medicine text disagreement"
+14,to syu /Mal pmone No.,0.719582,Ketotab,0.860338,Nexum,0.036451,Ketoral,0.027796,0.272727,0,REVIEW,OCR/medicine text disagreement
+15,Address,0.999699,Ketotab,0.286297,Diflu,0.236802,Az,0.151566,0.142857,-5,NON_MEDICINE,non-medicine keyword: address; OCR/medicine text disagreement
+16,Rx,0.813910,Az,0.936565,Rhinil,0.012734,Diflu,0.012101,0.000000,-2,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+17,ale -reve sie 3 daye,0.790604,Ketotab,0.994709,Napa Extend,0.001080,Nexum,0.001007,0.090909,0,REVIEW,OCR/medicine text disagreement
+18,2,0.936437,Az,0.767770,Diflu,0.074485,Rhinil,0.072288,0.000000,-1,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+19,BP-120/20,0.878604,Az,0.481493,Diflu,0.122763,Ketoral,0.066965,0.000000,-6,NON_MEDICINE,non-medicine keyword: bp; OCR/medicine text disagreement
+20,PR- 80 bpm,0.833752,Ketotab,0.814947,Diflu,0.063479,Rhinil,0.032388,0.142857,-6,NON_MEDICINE,non-medicine keyword: bpm; OCR/medicine text disagreement
+21,Diak Hamlo Bny Jidap,0.595068,Ketotab,0.983780,Nexum,0.010806,Rozith,0.000809,0.166667,-1,REVIEW,OCR/medicine text disagreement
+22,0,0.288094,Ketotab,0.300968,Az,0.237527,Diflu,0.123932,0.000000,-3,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+23,rab. Arvart sup -20 day,0.808872,Ketotab,0.998826,Nexum,0.000525,Flexilax,0.000149,0.166667,-3,REVIEW,clinical/context keyword: day; OCR/medicine text disagreement
+24,Dwertigetks,0.620407,Az,0.575298,Diflu,0.266127,Rhinil,0.048417,0.000000,0,REVIEW,OCR/medicine text disagreement
+25,0,0.450274,Az,0.661844,Ketotab,0.126992,Rhinil,0.058965,0.000000,-3,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+26,ORP,0.874347,Rhinil,0.379655,Az,0.295336,Ketotab,0.150500,0.222222,-2,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+27,3Tabhy—3d,0.587456,Ketotab,0.999797,Nexum,0.000098,Flexilax,0.000045,0.400000,0,REVIEW,weak OCR/medicine text agreement
+28,CUE,0.851874,Az,0.640394,Rhinil,0.130610,Diflu,0.120002,0.000000,-2,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+29,ECG,0.998341,Az,0.469390,Diflu,0.278829,Rhinil,0.161068,0.000000,-7,NON_MEDICINE,non-medicine keyword: ecg; OCR/medicine text disagreement; very short/noisy OCR text
+30,Ta1 Sple fout20d,0.599554,Ketotab,0.997108,Nexum,0.001209,Flexilax,0.000293,0.190476,-1,REVIEW,OCR/medicine text disagreement
+31,20,0.999891,Rhinil,0.755622,Diflu,0.064620,Az,0.062077,0.000000,-1,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+32,xーDX,0.591403,Az,0.385922,Diflu,0.346768,Ritch,0.053220,0.000000,-3,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+33,01w,0.373130,Rhinil,0.445353,Diflu,0.192308,Ketotab,0.155272,0.000000,-3,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+34,车,0.854604,Az,0.465321,Diflu,0.238476,Ketotab,0.106955,0.000000,-2,REVIEW,OCR/medicine text disagreement; very short/noisy OCR text
+35,Zga2gm,0.488142,Az,0.925523,Diflu,0.022550,Rhinil,0.018545,0.250000,-1,REVIEW,OCR/medicine text disagreement
+36,Dengu,0.994265,Az,0.794446,Rhinil,0.095207,Diflu,0.042451,0.000000,1,REVIEW,OCR/medicine text disagreement

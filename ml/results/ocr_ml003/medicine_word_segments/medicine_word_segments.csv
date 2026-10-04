@@ -1,0 +1,43 @@
+region_id,ocr_text,segment_id,segment_path,source_x,source_y,source_width,source_height
+1,SAI CLINIC,1,ml/results/ocr_ml003/medicine_word_segments/region_01/segment_01.png,46,27,58,29
+1,SAI CLINIC,2,ml/results/ocr_ml003/medicine_word_segments/region_01/segment_02.png,97,27,107,29
+2,Dr. Y. Lavanya,1,ml/results/ocr_ml003/medicine_word_segments/region_02/segment_01.png,226,26,55,19
+3,"Near Ambedkar Staue, Miyapur",1,ml/results/ocr_ml003/medicine_word_segments/region_03/segment_01.png,46,48,58,21
+3,"Near Ambedkar Staue, Miyapur",2,ml/results/ocr_ml003/medicine_word_segments/region_03/segment_02.png,101,48,75,21
+4,De K. Chanakya Chandra Katar,1,ml/results/ocr_ml003/medicine_word_segments/region_04/segment_01.png,224,49,112,18
+5,Hyderabad,1,ml/results/ocr_ml003/medicine_word_segments/region_05/segment_01.png,46,60,52,17
+6,Begd No :60237,1,ml/results/ocr_ml003/medicine_word_segments/region_06/segment_01.png,229,64,59,16
+7,H00S,1,ml/results/ocr_ml003/medicine_word_segments/region_07/segment_01.png,230,60,31,13
+8,Tet,1,ml/results/ocr_ml003/medicine_word_segments/region_08/segment_01.png,118,74,46,33
+9,Date tnltet 2022,1,ml/results/ocr_ml003/medicine_word_segments/region_09/segment_01.png,237,73,113,38
+10,Name,1,ml/results/ocr_ml003/medicine_word_segments/region_10/segment_01.png,48,89,30,20
+11,Age / Gonder,1,ml/results/ocr_ml003/medicine_word_segments/region_11/segment_01.png,46,100,61,24
+12,to yoe /Mal pmone No.,1,ml/results/ocr_ml003/medicine_word_segments/region_12/segment_01.png,121,92,133,36
+13,Address,1,ml/results/ocr_ml003/medicine_word_segments/region_13/segment_01.png,48,117,38,20
+14,R,1,ml/results/ocr_ml003/medicine_word_segments/region_14/segment_01.png,50,145,30,42
+15,K/e10- Hypestarion stypthyr,1,ml/results/ocr_ml003/medicine_word_segments/region_15/segment_01.png,123,145,46,46
+15,K/e10- Hypestarion stypthyr,2,ml/results/ocr_ml003/medicine_word_segments/region_15/segment_02.png,164,145,103,46
+15,K/e10- Hypestarion stypthyr,3,ml/results/ocr_ml003/medicine_word_segments/region_15/segment_03.png,260,145,82,46
+16,ale -Freve sinw 3 days,1,ml/results/ocr_ml003/medicine_word_segments/region_16/segment_01.png,131,173,166,42
+17,2,1,ml/results/ocr_ml003/medicine_word_segments/region_17/segment_01.png,223,205,22,36
+18,BP-1250/20,1,ml/results/ocr_ml003/medicine_word_segments/region_18/segment_01.png,60,200,29,57
+18,BP-1250/20,2,ml/results/ocr_ml003/medicine_word_segments/region_18/segment_02.png,87,200,50,57
+19,Dak Hamle Snydy,1,ml/results/ocr_ml003/medicine_word_segments/region_19/segment_01.png,181,218,185,54
+20,PR. 80 bpm,1,ml/results/ocr_ml003/medicine_word_segments/region_20/segment_01.png,60,213,29,67
+20,PR. 80 bpm,2,ml/results/ocr_ml003/medicine_word_segments/region_20/segment_02.png,86,213,60,67
+21,0y,1,ml/results/ocr_ml003/medicine_word_segments/region_21/segment_01.png,245,256,47,20
+22,rab.Arwatsmp -20dy,1,ml/results/ocr_ml003/medicine_word_segments/region_22/segment_01.png,175,254,153,59
+22,rab.Arwatsmp -20dy,2,ml/results/ocr_ml003/medicine_word_segments/region_22/segment_02.png,319,254,37,59
+23,Dwerligels,1,ml/results/ocr_ml003/medicine_word_segments/region_23/segment_01.png,13,273,92,77
+24,0,1,ml/results/ocr_ml003/medicine_word_segments/region_24/segment_01.png,243,293,47,25
+25,2ahx-3,1,ml/results/ocr_ml003/medicine_word_segments/region_25/segment_01.png,175,295,205,61
+26,OEP,1,ml/results/ocr_ml003/medicine_word_segments/region_26/segment_01.png,29,319,48,42
+27,CVE,1,ml/results/ocr_ml003/medicine_word_segments/region_27/segment_01.png,29,338,50,40
+28,Toh Splefot20d,1,ml/results/ocr_ml003/medicine_word_segments/region_28/segment_01.png,185,332,60,62
+28,Toh Splefot20d,2,ml/results/ocr_ml003/medicine_word_segments/region_28/segment_02.png,240,332,92,62
+28,Toh Splefot20d,3,ml/results/ocr_ml003/medicine_word_segments/region_28/segment_03.png,326,332,48,62
+29,ECG,1,ml/results/ocr_ml003/medicine_word_segments/region_29/segment_01.png,38,352,49,46
+30,xー00,1,ml/results/ocr_ml003/medicine_word_segments/region_30/segment_01.png,214,375,83,36
+31,上#,1,ml/results/ocr_ml003/medicine_word_segments/region_31/segment_01.png,229,399,136,94
+32,Zgagm,1,ml/results/ocr_ml003/medicine_word_segments/region_32/segment_01.png,93,380,86,95
+33,Dengu,1,ml/results/ocr_ml003/medicine_word_segments/region_33/segment_01.png,59,436,68,58
