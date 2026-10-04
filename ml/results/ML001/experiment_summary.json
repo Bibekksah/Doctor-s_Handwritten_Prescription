@@ -1,0 +1,21 @@
+{
+    "experiment": "ML001",
+    "preprocessing_version": "P1",
+    "preprocessing_name": "Grayscale",
+    "augmentation": "RandomAffine",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "epochs": 20,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "seed": 42,
+    "num_classes": 78,
+    "training_samples": 3120,
+    "validation_samples": 780,
+    "testing_samples": 780,
+    "best_validation_accuracy": 0.2833333333333333,
+    "best_epoch": 15,
+    "checkpoint": "/core/final_year_project2/ml/checkpoints/best_model_ML001.pth",
+    "training_history": "/core/final_year_project2/ml/results/ML001/training_history.json"
+}

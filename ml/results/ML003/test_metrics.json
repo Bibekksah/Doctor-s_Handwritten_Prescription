@@ -1,0 +1,15 @@
+{
+    "experiment": "ML003",
+    "model": "ResNet-18 Transfer Learning",
+    "preprocessing": "P1 Grayscale",
+    "best_validation_accuracy": 0.9538461538461539,
+    "best_epoch": 9,
+    "test_samples": 780,
+    "num_classes": 78,
+    "accuracy": 0.8910256410256411,
+    "precision_weighted": 0.9062963212001673,
+    "recall_weighted": 0.8910256410256411,
+    "f1_weighted": 0.8864661556153837,
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+}

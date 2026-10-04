@@ -1,0 +1,14 @@
+{
+    "experiment": "ML002",
+    "preprocessing": "P1 Grayscale",
+    "model": "ImprovedMedicineClassifier",
+    "test_samples": 780,
+    "accuracy": 0.19230769230769232,
+    "precision": 0.2687949506270721,
+    "recall": 0.19230769230769232,
+    "f1": 0.172792325943983,
+    "best_validation_accuracy": 0.3294871794871795,
+    "best_epoch": 17,
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+}

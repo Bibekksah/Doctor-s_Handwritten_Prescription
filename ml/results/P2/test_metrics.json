@@ -1,0 +1,15 @@
+{
+    "pipeline_id": "P2",
+    "pipeline_name": "Grayscale + Denoise",
+    "checkpoint": "best_model_P2.pth",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "test_samples": 780,
+    "num_classes": 78,
+    "best_epoch": 9,
+    "best_validation_accuracy": 0.23461538461538461,
+    "test_accuracy": 0.08076923076923077,
+    "test_precision_weighted": 0.10648829081844265,
+    "test_recall_weighted": 0.08076923076923077,
+    "test_f1_weighted": 0.06791393701805273
+}

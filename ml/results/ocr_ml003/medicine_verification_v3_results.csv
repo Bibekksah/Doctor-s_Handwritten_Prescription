@@ -1,0 +1,34 @@
+region_id,ocr_text,ocr_confidence,gate_score,gate_decision,fuzzy_medicine,fuzzy_similarity,ml_top1_medicine,ml_top1_confidence,ml_top2_medicine,ml_top2_confidence,ml_top3_medicine,ml_top3_confidence,evidence_score,verification_decision,verification_reason,evidence_details
+1,SAI CLINIC,0.9988,-2,NON_MEDICINE,Baclon,0.5200,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+2,Dr. Y. Lavanya,0.8438,-7,NON_MEDICINE,Dancel,0.3583,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+3,"Near Ambedkar Staue, Miyapur",0.878,2,REVIEW,M-Kast,0.3281,Tridosil,0.838878,Tamen,0.140479,Trilock,0.013789,5,REVIEW,Moderate ML evidence; insufficient independent OCR support,gate review; moderate OCR confidence; high ML confidence; weak fuzzy similarity
+4,De K. Chanakya Chandra Katar,0.6878,-1,NON_MEDICINE,Napa Extend,0.3081,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+5,Hyderabad,0.9807,-2,NON_MEDICINE,Bacaid,0.4000,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+6,Begd No :60237,0.7276,3,REVIEW,Beklo,0.3583,Diflu,0.598645,Az,0.143224,Vifas,0.060262,3,REVIEW,Insufficient evidence for automatic acceptance,gate review; moderate OCR confidence; weak ML confidence; weak fuzzy similarity
+7,H00S,0.571,-1,NON_MEDICINE,Azyth,0.2222,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+8,Tet,0.951,4,REVIEW,Telfast,0.6000,Az,0.686800,Diflu,0.19848,Rhinil,0.027732,7,REVIEW,Moderate ML evidence; insufficient independent OCR support,gate review; high OCR confidence; moderate ML confidence; strong fuzzy similarity
+9,Date tnltet 2022,0.6783,-9,NON_MEDICINE,Dancel,0.3855,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+10,Name,0.9713,-3,NON_MEDICINE,Tamen,0.6667,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+11,Age / Gonder,0.9389,-2,NON_MEDICINE,Nizoder,0.4882,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+12,to yoe /Mal pmone No.,0.7569,4,REVIEW,Montene,0.4266,Ketotab,0.994434,Nexum,0.003722,Ketoral,0.00082,7,REVIEW,Strong ML evidence; human verification required,gate review; moderate OCR confidence; very high ML confidence; moderate fuzzy similarity
+13,Address,0.9996,-2,NON_MEDICINE,Amodis,0.4615,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+14,R,0.9998,-3,REVIEW,Metro,0.3333,Az,0.666562,Rhinil,0.059975,Napa,0.045743,3,REVIEW,Insufficient evidence for automatic acceptance,gate review; high OCR confidence; very short OCR text; moderate ML confidence; weak fuzzy similarity
+15,K/e10- Hypestarion stypthyr,0.5801,-1,NON_MEDICINE,Ketocon,0.3212,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+16,ale -Freve sinw 3 days,0.7537,0,REVIEW,Metsina,0.3929,Ketotab,0.994644,Nexum,0.003543,Flexilax,0.00046,6,REVIEW,Strong ML evidence; human verification required,gate review; moderate OCR confidence; very high ML confidence; weak fuzzy similarity
+17,2,0.8937,-3,REVIEW,Ace,0.0000,Az,0.878801,Rhinil,0.072271,Diflu,0.019929,3,REVIEW,Insufficient evidence for automatic acceptance,gate review; moderate OCR confidence; very short OCR text; high ML confidence
+18,BP-1250/20,0.8145,-12,NON_MEDICINE,Napa,0.1571,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+19,Dak Hamle Snydy,0.6638,1,REVIEW,Tamen,0.4267,Ketotab,0.990257,Nexum,0.006576,Ketoral,0.000566,6,REVIEW,Strong ML evidence; human verification required,gate review; low OCR confidence; very high ML confidence; moderate fuzzy similarity
+20,PR. 80 bpm,0.8434,-14,NON_MEDICINE,Bacmax,0.2913,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+21,0y,0.4737,-4,REVIEW,Azyth,0.2857,Ketotab,0.513866,Ritch,0.096978,Diflu,0.093528,1,REJECT,Insufficient evidence,gate review; low OCR confidence; short OCR text; weak ML confidence; weak fuzzy similarity
+22,rab.Arwatsmp -20dy,0.766,3,REVIEW,Bacaid,0.3329,Ketotab,0.996889,Nexum,0.001375,Ketoral,0.000544,6,REVIEW,Strong ML evidence; human verification required,gate review; moderate OCR confidence; very high ML confidence; weak fuzzy similarity
+23,Dwerligels,0.5683,2,REVIEW,Sergel,0.6250,Az,0.483587,Diflu,0.357018,Rhinil,0.038882,3,REVIEW,Insufficient evidence for automatic acceptance,gate review; low OCR confidence; weak ML confidence; strong fuzzy similarity; small ML top-1 margin
+24,0,0.3643,-6,REVIEW,Ace,0.0000,Ketotab,0.308835,Diflu,0.233539,Az,0.209483,-3,REJECT,Insufficient evidence,gate review; low OCR confidence; very short OCR text; low ML confidence; small ML top-1 margin
+25,2ahx-3,0.4899,0,REVIEW,Azyth,0.3855,Ketotab,0.997335,Nexum,0.001162,Ketoral,0.000256,5,REVIEW,Moderate ML evidence; insufficient independent OCR support,gate review; low OCR confidence; very high ML confidence; weak fuzzy similarity
+26,OEP,0.7826,2,REVIEW,Opton,0.5000,Az,0.285619,Rhinil,0.281482,Ketotab,0.184759,1,REJECT,Insufficient evidence,gate review; moderate OCR confidence; low ML confidence; moderate fuzzy similarity; small ML top-1 margin
+27,CVE,0.8831,3,REVIEW,Ace,0.6667,Ketotab,0.292463,Az,0.225841,Diflu,0.199203,2,REVIEW,Insufficient evidence for automatic acceptance,gate review; moderate OCR confidence; low ML confidence; strong fuzzy similarity; small ML top-1 margin
+28,Toh Splefot20d,0.5004,0,REVIEW,Cetisoft,0.3740,Ketotab,0.998362,Nexum,0.000578,Rozith,0.000334,5,REVIEW,Moderate ML evidence; insufficient independent OCR support,gate review; low OCR confidence; very high ML confidence; weak fuzzy similarity
+29,ECG,0.9965,-4,NON_MEDICINE,Leptic,0.4444,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+30,xー00,0.5109,-1,NON_MEDICINE,Fexo,0.2714,,0.000000,,,,,-10,REJECT,Candidate gate rejected region,Candidate gate rejected region
+31,上#,0.4196,-4,REVIEW,Ace,0.0000,Az,0.581408,Diflu,0.226639,Rhinil,0.048947,1,REJECT,Insufficient evidence,gate review; low OCR confidence; short OCR text; weak ML confidence
+32,Zgagm,0.6344,1,REVIEW,Tamen,0.4000,Az,0.948636,Rhinil,0.015751,Diflu,0.010992,6,REVIEW,Strong ML evidence; human verification required,gate review; low OCR confidence; very high ML confidence; moderate fuzzy similarity
+33,Dengu,0.9853,5,MEDICINE_CANDIDATE,Denixil,0.5000,Rhinil,0.628830,Ketotab,0.265812,Az,0.028627,7,REVIEW,Moderate ML evidence; insufficient independent OCR support,medicine candidate gate; high OCR confidence; moderate ML confidence; moderate fuzzy similarity

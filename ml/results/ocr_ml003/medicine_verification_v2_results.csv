@@ -1,0 +1,34 @@
+region_id,ocr_text,gate_decision,ml_medicine,ml_confidence,fuzzy_medicine,similarity,verification_score,final_decision,reason
+1,SAI CLINIC,NON_MEDICINE,,,Baclon,0.52,-10,REJECT,Candidate gate rejected region
+2,Dr. Y. Lavanya,NON_MEDICINE,,,Dancel,0.3583,-10,REJECT,Candidate gate rejected region
+3,"Near Ambedkar Staue, Miyapur",REVIEW,Tridosil,0.838878,M-Kast,0.3281,3,REVIEW,ML/fuzzy candidate disagreement
+4,De K. Chanakya Chandra Katar,NON_MEDICINE,,,Napa Extend,0.3081,-10,REJECT,Candidate gate rejected region
+5,Hyderabad,NON_MEDICINE,,,Bacaid,0.4,-10,REJECT,Candidate gate rejected region
+6,Begd No :60237,REVIEW,Diflu,0.598645,Beklo,0.3583,0,REJECT,ML/fuzzy candidate disagreement
+7,H00S,NON_MEDICINE,,,Azyth,0.2222,-10,REJECT,Candidate gate rejected region
+8,Tet,REVIEW,Az,0.6868,Telfast,0.6,5,REVIEW,ML/fuzzy candidate disagreement
+9,Date tnltet 2022,NON_MEDICINE,,,Dancel,0.3855,-10,REJECT,Candidate gate rejected region
+10,Name,NON_MEDICINE,,,Tamen,0.6667,-10,REJECT,Candidate gate rejected region
+11,Age / Gonder,NON_MEDICINE,,,Nizoder,0.4882,-10,REJECT,Candidate gate rejected region
+12,to yoe /Mal pmone No.,REVIEW,Ketotab,0.994434,Montene,0.4266,4,REVIEW,ML/fuzzy candidate disagreement
+13,Address,NON_MEDICINE,,,Amodis,0.4615,-10,REJECT,Candidate gate rejected region
+14,R,REVIEW,Az,0.666562,Metro,0.3333,1,REJECT,ML/fuzzy candidate disagreement
+15,K/e10- Hypestarion stypthyr,NON_MEDICINE,,,Ketocon,0.3212,-10,REJECT,Candidate gate rejected region
+16,ale -Freve sinw 3 days,REVIEW,Ketotab,0.994644,Metsina,0.3929,3,REVIEW,ML/fuzzy candidate disagreement
+17,2,REVIEW,Az,0.878801,Ace,0.0,-1,REJECT,ML/fuzzy candidate disagreement
+18,BP-1250/20,NON_MEDICINE,,,Napa,0.1571,-10,REJECT,Candidate gate rejected region
+19,Dak Hamle Snydy,REVIEW,Ketotab,0.990257,Tamen,0.4267,2,REJECT,ML/fuzzy candidate disagreement
+20,PR. 80 bpm,NON_MEDICINE,,,Bacmax,0.2913,-10,REJECT,Candidate gate rejected region
+21,0y,REVIEW,Ketotab,0.513866,Azyth,0.2857,-6,REJECT,ML/fuzzy candidate disagreement
+22,rab.Arwatsmp -20dy,REVIEW,Ketotab,0.996889,Bacaid,0.3329,3,REVIEW,ML/fuzzy candidate disagreement
+23,Dwerligels,REVIEW,Az,0.483587,Sergel,0.625,0,REJECT,ML/fuzzy candidate disagreement
+24,0,REVIEW,Ketotab,0.308835,Ace,0.0,-6,REJECT,ML/fuzzy candidate disagreement
+25,2ahx-3,REVIEW,Ketotab,0.997335,Azyth,0.3855,1,REJECT,ML/fuzzy candidate disagreement
+26,OEP,REVIEW,Az,0.285619,Opton,0.5,1,REJECT,ML/fuzzy candidate disagreement
+27,CVE,REVIEW,Ketotab,0.292463,Ace,0.6667,2,REJECT,ML/fuzzy candidate disagreement
+28,Toh Splefot20d,REVIEW,Ketotab,0.998362,Cetisoft,0.374,1,REJECT,ML/fuzzy candidate disagreement
+29,ECG,NON_MEDICINE,,,Leptic,0.4444,-10,REJECT,Candidate gate rejected region
+30,xー00,NON_MEDICINE,,,Fexo,0.2714,-10,REJECT,Candidate gate rejected region
+31,上#,REVIEW,Az,0.581408,Ace,0.0,-6,REJECT,ML/fuzzy candidate disagreement
+32,Zgagm,REVIEW,Az,0.948636,Tamen,0.4,2,REJECT,ML/fuzzy candidate disagreement
+33,Dengu,MEDICINE_CANDIDATE,Rhinil,0.62883,Denixil,0.5,6,REVIEW,ML/fuzzy candidate disagreement

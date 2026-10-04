@@ -1,0 +1,28 @@
+{
+    "experiment": "ML003_DEPLOYMENT_BASELINE",
+    "model": "ResNet-18",
+    "num_classes": 78,
+    "parameters": 11216526,
+    "checkpoint_size_mb": 42.86811351776123,
+    "input_shape": [
+        1,
+        3,
+        64,
+        256
+    ],
+    "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "gpu_benchmark": {
+        "total_time_seconds": 0.18321779300003982,
+        "average_latency_ms": 1.8321779300003982,
+        "throughput_images_per_second": 545.798518596817,
+        "iterations": 100,
+        "warmup": 20
+    },
+    "cpu_benchmark": {
+        "total_time_seconds": 1.4007499220001591,
+        "average_latency_ms": 14.007499220001591,
+        "throughput_images_per_second": 71.39033058606776,
+        "iterations": 100,
+        "warmup": 20
+    }
+}

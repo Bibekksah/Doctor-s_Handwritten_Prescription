@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 
 import torch
-import torch.nn as nn
 import matplotlib.pyplot as plt
+
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -18,6 +18,15 @@ from ml.dataloader import create_dataloaders
 from ml.model import MedicineClassifier
 from ml.device import get_device, get_device_name
 
+from CV.preprocessing import (
+    get_baseline_transform,
+    get_grayscale_transform,
+    get_grayscale_denoise_transform,
+    get_grayscale_denoise_clahe_transform,
+    get_grayscale_denoise_threshold_transform,
+    get_grayscale_denoise_deskew_transform,
+)
+
 
 # ============================================================
 # PATHS
@@ -25,77 +34,208 @@ from ml.device import get_device, get_device_name
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-CHECKPOINT_PATH = (
+CHECKPOINT_DIR = (
     PROJECT_ROOT
     / "ml"
     / "checkpoints"
-    / "best_model.pth"
 )
 
-RESULTS_DIR = PROJECT_ROOT / "ml" / "results"
-RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+RESULTS_DIR = (
+    PROJECT_ROOT
+    / "ml"
+    / "results"
+)
 
-REPORT_PATH = RESULTS_DIR / "test_classification_report.txt"
-METRICS_PATH = RESULTS_DIR / "test_metrics.json"
-CONFUSION_MATRIX_PATH = RESULTS_DIR / "confusion_matrix.png"
+RESULTS_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
 
 
 # ============================================================
-# EVALUATION
+# PREPROCESSING PIPELINES
 # ============================================================
 
-def main():
+PIPELINES = {
+    "P0": {
+        "name": "RGB Baseline",
+        "transform": get_baseline_transform,
+        "checkpoint": "best_model_P0.pth",
+    },
 
-    print("=" * 70)
-    print("MEDICINE CLASSIFIER TEST EVALUATION")
-    print("=" * 70)
+    "P1": {
+        "name": "Grayscale",
+        "transform": get_grayscale_transform,
+        "checkpoint": "best_model_P1.pth",
+    },
+
+    "P2": {
+        "name": "Grayscale + Denoise",
+        "transform": get_grayscale_denoise_transform,
+        "checkpoint": "best_model_P2.pth",
+    },
+
+    "P3": {
+        "name": "Grayscale + Denoise + CLAHE",
+        "transform": get_grayscale_denoise_clahe_transform,
+        "checkpoint": "best_model_P3.pth",
+    },
+
+    "P4": {
+        "name": "Grayscale + Denoise + Otsu",
+        "transform": get_grayscale_denoise_threshold_transform,
+        "checkpoint": "best_model_P4.pth",
+    },
+
+    "P5": {
+        "name": "Grayscale + Denoise + Deskew",
+        "transform": get_grayscale_denoise_deskew_transform,
+        "checkpoint": "best_model_P5.pth",
+    },
+}
+
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+
+def evaluate_pipeline(
+    pipeline_id,
+    pipeline_info,
+    device
+):
+    """
+    Evaluate one preprocessing pipeline using its
+    corresponding best checkpoint.
+    """
+
+    pipeline_name = pipeline_info["name"]
+    checkpoint_name = pipeline_info["checkpoint"]
+    transform_function = pipeline_info["transform"]
+
+    print()
+    print("=" * 80)
+    print(f"EVALUATING {pipeline_id}")
+    print("=" * 80)
+
+    print("Pipeline:", pipeline_name)
 
     # --------------------------------------------------------
-    # Device
+    # Paths
     # --------------------------------------------------------
 
-    device = get_device()
+    checkpoint_path = (
+        CHECKPOINT_DIR
+        / checkpoint_name
+    )
 
-    print("Device:", device)
-    print("Device name:", get_device_name(device))
+    pipeline_results_dir = (
+        RESULTS_DIR
+        / pipeline_id
+    )
+
+    pipeline_results_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    report_path = (
+        pipeline_results_dir
+        / "test_classification_report.txt"
+    )
+
+    metrics_path = (
+        pipeline_results_dir
+        / "test_metrics.json"
+    )
+
+    confusion_matrix_path = (
+        pipeline_results_dir
+        / "confusion_matrix.png"
+    )
 
     # --------------------------------------------------------
     # Check checkpoint
     # --------------------------------------------------------
 
-    if not CHECKPOINT_PATH.exists():
-        raise FileNotFoundError(
-            f"Checkpoint not found: {CHECKPOINT_PATH}"
+    if not checkpoint_path.exists():
+
+        print(
+            f"WARNING: Checkpoint not found:"
+            f"\n{checkpoint_path}"
         )
 
-    print("Checkpoint:", CHECKPOINT_PATH)
+        return None
+
+    print("Checkpoint:", checkpoint_path)
 
     # --------------------------------------------------------
-    # Load dataloaders
+    # Create matching preprocessing transform
     # --------------------------------------------------------
 
-    _, _, test_loader, class_to_idx, idx_to_class = create_dataloaders(
-        batch_size=32
+    transform = transform_function()
+
+    print(
+        "Preprocessing transform:",
+        pipeline_name
     )
 
-    print("Testing samples:", len(test_loader.dataset))
-    print("Medicine classes:", len(class_to_idx))
+    # --------------------------------------------------------
+    # Create dataloaders
+    # --------------------------------------------------------
+
+    _, _, test_loader, class_to_idx, idx_to_class = (
+        create_dataloaders(
+            batch_size=32,
+            transform=transform
+        )
+    )
+
+    print(
+        "Testing samples:",
+        len(test_loader.dataset)
+    )
+
+    print(
+        "Medicine classes:",
+        len(class_to_idx)
+    )
 
     # --------------------------------------------------------
-    # Load model
+    # Load checkpoint
     # --------------------------------------------------------
 
     checkpoint = torch.load(
-        CHECKPOINT_PATH,
+        checkpoint_path,
         map_location=device,
         weights_only=False
     )
 
     num_classes = checkpoint["num_classes"]
 
+    # --------------------------------------------------------
+    # Validate number of classes
+    # --------------------------------------------------------
+
+    if num_classes != len(class_to_idx):
+
+        raise ValueError(
+            f"Class count mismatch for {pipeline_id}: "
+            f"checkpoint has {num_classes}, "
+            f"dataset has {len(class_to_idx)}."
+        )
+
+    # --------------------------------------------------------
+    # Create model
+    # --------------------------------------------------------
+
     model = MedicineClassifier(
         num_classes=num_classes
     ).to(device)
+
+    # --------------------------------------------------------
+    # Load trained weights
+    # --------------------------------------------------------
 
     model.load_state_dict(
         checkpoint["model_state_dict"]
@@ -103,14 +243,24 @@ def main():
 
     model.eval()
 
+    # --------------------------------------------------------
+    # Checkpoint information
+    # --------------------------------------------------------
+
+    best_validation_accuracy = (
+        checkpoint["validation_accuracy"]
+    )
+
+    best_epoch = checkpoint["epoch"]
+
     print(
         "Best validation accuracy:",
-        f"{checkpoint['validation_accuracy'] * 100:.2f}%"
+        f"{best_validation_accuracy * 100:.2f}%"
     )
 
     print(
         "Best epoch:",
-        checkpoint["epoch"]
+        best_epoch
     )
 
     # --------------------------------------------------------
@@ -127,12 +277,36 @@ def main():
 
         for batch in test_loader:
 
-            images = batch["image"].to(device)
-            labels = batch["label"].to(device)
+            # ------------------------------------------------
+            # PrescriptionDataset returns:
+            #
+            # image
+            # medicine_name
+            # generic_name
+            # image_path
+            # label
+            # ------------------------------------------------
+
+            images = batch[0].to(device)
+            labels = batch[4].to(device)
+
+            # ------------------------------------------------
+            # Forward pass
+            # ------------------------------------------------
 
             outputs = model(images)
 
-            predictions = outputs.argmax(dim=1)
+            # ------------------------------------------------
+            # Predicted class
+            # ------------------------------------------------
+
+            predictions = outputs.argmax(
+                dim=1
+            )
+
+            # ------------------------------------------------
+            # Store results
+            # ------------------------------------------------
 
             all_labels.extend(
                 labels.cpu().numpy()
@@ -177,23 +351,38 @@ def main():
     # --------------------------------------------------------
 
     print()
-    print("=" * 70)
-    print("TEST RESULTS")
-    print("=" * 70)
+    print("-" * 80)
+    print(f"{pipeline_id} TEST RESULTS")
+    print("-" * 80)
 
-    print(f"Accuracy : {accuracy * 100:.2f}%")
-    print(f"Precision: {precision * 100:.2f}%")
-    print(f"Recall   : {recall * 100:.2f}%")
-    print(f"F1 Score : {f1 * 100:.2f}%")
+    print(
+        f"Accuracy : {accuracy * 100:.2f}%"
+    )
+
+    print(
+        f"Precision: {precision * 100:.2f}%"
+    )
+
+    print(
+        f"Recall   : {recall * 100:.2f}%"
+    )
+
+    print(
+        f"F1 Score : {f1 * 100:.2f}%"
+    )
 
     # --------------------------------------------------------
-    # Classification report
+    # Class names
     # --------------------------------------------------------
 
     target_names = [
         idx_to_class[i]
         for i in range(num_classes)
     ]
+
+    # --------------------------------------------------------
+    # Classification report
+    # --------------------------------------------------------
 
     report = classification_report(
         all_labels,
@@ -204,9 +393,9 @@ def main():
     )
 
     print()
-    print("=" * 70)
-    print("CLASSIFICATION REPORT")
-    print("=" * 70)
+    print("-" * 80)
+    print(f"{pipeline_id} CLASSIFICATION REPORT")
+    print("-" * 80)
 
     print(report)
 
@@ -215,7 +404,7 @@ def main():
     # --------------------------------------------------------
 
     with open(
-        REPORT_PATH,
+        report_path,
         "w",
         encoding="utf-8"
     ) as file:
@@ -224,47 +413,77 @@ def main():
             "MEDICINE CLASSIFIER TEST EVALUATION\n"
         )
 
-        file.write("=" * 70 + "\n\n")
+        file.write(
+            "=" * 80 + "\n\n"
+        )
+
+        file.write(
+            f"Pipeline ID: {pipeline_id}\n"
+        )
+
+        file.write(
+            f"Pipeline: {pipeline_name}\n"
+        )
+
+        file.write(
+            f"Checkpoint: {checkpoint_name}\n"
+        )
 
         file.write(
             f"Device: {device}\n"
         )
 
         file.write(
-            f"Device name: {get_device_name(device)}\n"
+            f"Device name: "
+            f"{get_device_name(device)}\n"
         )
 
         file.write(
-            f"Test samples: {len(test_loader.dataset)}\n"
+            f"Test samples: "
+            f"{len(test_loader.dataset)}\n"
         )
 
         file.write(
-            f"Number of classes: {num_classes}\n"
+            f"Number of classes: "
+            f"{num_classes}\n"
         )
 
         file.write(
             f"Best validation accuracy: "
-            f"{checkpoint['validation_accuracy'] * 100:.2f}%\n"
+            f"{best_validation_accuracy * 100:.2f}%\n"
         )
 
         file.write(
-            f"Best epoch: {checkpoint['epoch']}\n\n"
+            f"Best epoch: "
+            f"{best_epoch}\n\n"
         )
 
         file.write(
-            f"Accuracy : {accuracy * 100:.2f}%\n"
+            "TEST METRICS\n"
         )
 
         file.write(
-            f"Precision: {precision * 100:.2f}%\n"
+            "-" * 80 + "\n"
         )
 
         file.write(
-            f"Recall   : {recall * 100:.2f}%\n"
+            f"Accuracy : "
+            f"{accuracy * 100:.2f}%\n"
         )
 
         file.write(
-            f"F1 Score : {f1 * 100:.2f}%\n\n"
+            f"Precision: "
+            f"{precision * 100:.2f}%\n"
+        )
+
+        file.write(
+            f"Recall   : "
+            f"{recall * 100:.2f}%\n"
+        )
+
+        file.write(
+            f"F1 Score : "
+            f"{f1 * 100:.2f}%\n\n"
         )
 
         file.write(
@@ -272,7 +491,7 @@ def main():
         )
 
         file.write(
-            "=" * 70 + "\n\n"
+            "=" * 80 + "\n\n"
         )
 
         file.write(report)
@@ -282,21 +501,28 @@ def main():
     # --------------------------------------------------------
 
     metrics = {
+        "pipeline_id": pipeline_id,
+        "pipeline_name": pipeline_name,
+        "checkpoint": checkpoint_name,
         "device": str(device),
         "device_name": get_device_name(device),
         "test_samples": len(test_loader.dataset),
         "num_classes": num_classes,
-        "best_epoch": checkpoint["epoch"],
+        "best_epoch": best_epoch,
         "best_validation_accuracy":
-            checkpoint["validation_accuracy"],
-        "test_accuracy": accuracy,
-        "test_precision_weighted": precision,
-        "test_recall_weighted": recall,
-        "test_f1_weighted": f1
+            best_validation_accuracy,
+        "test_accuracy":
+            accuracy,
+        "test_precision_weighted":
+            precision,
+        "test_recall_weighted":
+            recall,
+        "test_f1_weighted":
+            f1
     }
 
     with open(
-        METRICS_PATH,
+        metrics_path,
         "w",
         encoding="utf-8"
     ) as file:
@@ -333,36 +559,201 @@ def main():
     )
 
     ax.set_title(
-        "Medicine Classifier - Confusion Matrix"
+        f"{pipeline_id} - "
+        f"{pipeline_name}\n"
+        f"Medicine Classifier Confusion Matrix"
     )
 
     plt.tight_layout()
 
     plt.savefig(
-        CONFUSION_MATRIX_PATH,
+        confusion_matrix_path,
         dpi=200
     )
 
     plt.close()
 
     # --------------------------------------------------------
-    # Final output
+    # Return results
+    # --------------------------------------------------------
+
+    result = {
+        "pipeline_id": pipeline_id,
+        "pipeline_name": pipeline_name,
+        "checkpoint": checkpoint_name,
+        "best_epoch": best_epoch,
+        "best_validation_accuracy":
+            best_validation_accuracy,
+        "test_accuracy":
+            accuracy,
+        "test_precision_weighted":
+            precision,
+        "test_recall_weighted":
+            recall,
+        "test_f1_weighted":
+            f1,
+        "test_samples":
+            len(test_loader.dataset),
+        "num_classes":
+            num_classes
+    }
+
+    print()
+    print(
+        "Saved classification report:"
+    )
+    print(report_path)
+
+    print(
+        "Saved metrics:"
+    )
+    print(metrics_path)
+
+    print(
+        "Saved confusion matrix:"
+    )
+    print(confusion_matrix_path)
+
+    return result
+
+
+# ============================================================
+# MAIN
+# ============================================================
+
+def main():
+
+    print()
+    print("=" * 80)
+    print("MEDICINE CLASSIFIER")
+    print("P0-P5 PREPROCESSING TEST EVALUATION")
+    print("=" * 80)
+
+    # --------------------------------------------------------
+    # Device
+    # --------------------------------------------------------
+
+    device = get_device()
+
+    print()
+    print("Device:", device)
+    print(
+        "Device name:",
+        get_device_name(device)
+    )
+
+    # --------------------------------------------------------
+    # Evaluate all pipelines
+    # --------------------------------------------------------
+
+    results = []
+
+    for pipeline_id, pipeline_info in PIPELINES.items():
+
+        result = evaluate_pipeline(
+            pipeline_id,
+            pipeline_info,
+            device
+        )
+
+        if result is not None:
+            results.append(result)
+
+    # --------------------------------------------------------
+    # Check whether evaluation produced results
+    # --------------------------------------------------------
+
+    if not results:
+
+        raise RuntimeError(
+            "No pipeline was successfully evaluated."
+        )
+
+    # --------------------------------------------------------
+    # Save aggregate comparison
+    # --------------------------------------------------------
+
+    comparison_path = (
+        RESULTS_DIR
+        / "preprocessing_comparison.json"
+    )
+
+    comparison = {
+        "experiment": (
+            "P0-P5 Preprocessing "
+            "Ablation Test Evaluation"
+        ),
+        "device": str(device),
+        "device_name": get_device_name(device),
+        "results": results
+    }
+
+    with open(
+        comparison_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            comparison,
+            file,
+            indent=4
+        )
+
+    # --------------------------------------------------------
+    # Print final comparison
     # --------------------------------------------------------
 
     print()
-    print("=" * 70)
-    print("EVALUATION COMPLETE")
-    print("=" * 70)
+    print()
+    print("=" * 100)
+    print("FINAL P0-P5 TEST COMPARISON")
+    print("=" * 100)
 
-    print("Classification report:")
-    print(REPORT_PATH)
+    print(
+        f"{'Pipeline':<10}"
+        f"{'Best Val':>12}"
+        f"{'Test Acc':>12}"
+        f"{'Precision':>12}"
+        f"{'Recall':>12}"
+        f"{'F1':>12}"
+    )
 
-    print("Metrics:")
-    print(METRICS_PATH)
+    print("-" * 100)
 
-    print("Confusion matrix:")
-    print(CONFUSION_MATRIX_PATH)
+    for result in results:
 
+        print(
+            f"{result['pipeline_id']:<10}"
+            f"{result['best_validation_accuracy'] * 100:>11.2f}%"
+            f"{result['test_accuracy'] * 100:>11.2f}%"
+            f"{result['test_precision_weighted'] * 100:>11.2f}%"
+            f"{result['test_recall_weighted'] * 100:>11.2f}%"
+            f"{result['test_f1_weighted'] * 100:>11.2f}%"
+        )
+
+    print("-" * 100)
+
+    # --------------------------------------------------------
+    # Results location
+    # --------------------------------------------------------
+
+    print()
+    print(
+        "Aggregate comparison:"
+    )
+
+    print(comparison_path)
+
+    print()
+    print("=" * 80)
+    print("ALL PIPELINE EVALUATIONS COMPLETE")
+    print("=" * 80)
+
+
+# ============================================================
+# ENTRY POINT
+# ============================================================
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,85 @@
+{
+    "experiment": "P0-P5 Preprocessing Ablation Test Evaluation",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "results": [
+        {
+            "pipeline_id": "P0",
+            "pipeline_name": "RGB Baseline",
+            "checkpoint": "best_model_P0.pth",
+            "best_epoch": 15,
+            "best_validation_accuracy": 0.29102564102564105,
+            "test_accuracy": 0.17051282051282052,
+            "test_precision_weighted": 0.179515506290758,
+            "test_recall_weighted": 0.17051282051282052,
+            "test_f1_weighted": 0.13162652771421607,
+            "test_samples": 780,
+            "num_classes": 78
+        },
+        {
+            "pipeline_id": "P1",
+            "pipeline_name": "Grayscale",
+            "checkpoint": "best_model_P1.pth",
+            "best_epoch": 19,
+            "best_validation_accuracy": 0.3641025641025641,
+            "test_accuracy": 0.22692307692307692,
+            "test_precision_weighted": 0.2813484190006601,
+            "test_recall_weighted": 0.22692307692307692,
+            "test_f1_weighted": 0.198031079793951,
+            "test_samples": 780,
+            "num_classes": 78
+        },
+        {
+            "pipeline_id": "P2",
+            "pipeline_name": "Grayscale + Denoise",
+            "checkpoint": "best_model_P2.pth",
+            "best_epoch": 9,
+            "best_validation_accuracy": 0.23461538461538461,
+            "test_accuracy": 0.08076923076923077,
+            "test_precision_weighted": 0.10648829081844265,
+            "test_recall_weighted": 0.08076923076923077,
+            "test_f1_weighted": 0.06791393701805273,
+            "test_samples": 780,
+            "num_classes": 78
+        },
+        {
+            "pipeline_id": "P3",
+            "pipeline_name": "Grayscale + Denoise + CLAHE",
+            "checkpoint": "best_model_P3.pth",
+            "best_epoch": 9,
+            "best_validation_accuracy": 0.18974358974358974,
+            "test_accuracy": 0.11025641025641025,
+            "test_precision_weighted": 0.08599781463140954,
+            "test_recall_weighted": 0.11025641025641025,
+            "test_f1_weighted": 0.07248867590941255,
+            "test_samples": 780,
+            "num_classes": 78
+        },
+        {
+            "pipeline_id": "P4",
+            "pipeline_name": "Grayscale + Denoise + Otsu",
+            "checkpoint": "best_model_P4.pth",
+            "best_epoch": 5,
+            "best_validation_accuracy": 0.17692307692307693,
+            "test_accuracy": 0.09102564102564102,
+            "test_precision_weighted": 0.0771381070444294,
+            "test_recall_weighted": 0.09102564102564102,
+            "test_f1_weighted": 0.056358094916689964,
+            "test_samples": 780,
+            "num_classes": 78
+        },
+        {
+            "pipeline_id": "P5",
+            "pipeline_name": "Grayscale + Denoise + Deskew",
+            "checkpoint": "best_model_P5.pth",
+            "best_epoch": 15,
+            "best_validation_accuracy": 0.1371794871794872,
+            "test_accuracy": 0.06538461538461539,
+            "test_precision_weighted": 0.05576170201509077,
+            "test_recall_weighted": 0.06538461538461539,
+            "test_f1_weighted": 0.0354480744680176,
+            "test_samples": 780,
+            "num_classes": 78
+        }
+    ]
+}

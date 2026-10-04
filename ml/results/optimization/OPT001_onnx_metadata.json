@@ -1,0 +1,16 @@
+{
+    "experiment": "OPT-001",
+    "description": "ML-003 ResNet-18 exported to ONNX",
+    "source_model": "ML-003",
+    "num_classes": 78,
+    "input_shape": [
+        1,
+        3,
+        64,
+        256
+    ],
+    "opset_version": 18,
+    "reference_validation_accuracy": 0.9538461538461539,
+    "onnx_model_size_mb": 0.10748863220214844,
+    "onnx_path": "/core/final_year_project2/ml/results/optimization/ML003_resnet18.onnx"
+}

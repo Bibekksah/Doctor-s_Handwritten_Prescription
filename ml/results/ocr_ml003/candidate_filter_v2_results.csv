@@ -1,0 +1,34 @@
+region_id,ocr_text,ocr_confidence,bbox_width,bbox_height,candidate_score,filter_decision,manual_label,reasons
+1,SAI CLINIC,0.9988,151,25,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+2,Dr. Y. Lavanya,0.8438,51,15,-2,REJECT,NON_MEDICINE,moderate_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+3,"Near Ambedkar Staue, Miyapur",0.878,125,17,2,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_region_size
+4,De K. Chanakya Chandra Katar,0.6878,102,14,0,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_region_size
+5,Hyderabad,0.9807,49,13,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+6,Begd No :60237,0.7276,55,12,3,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_text_length;reasonable_region_size
+7,H00S,0.571,27,9,1,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+8,Tet,0.951,42,29,4,PASS_TO_ML,NON_MEDICINE,high_ocr_confidence;reasonable_text_length;reasonable_region_size
+9,Date tnltet 2022,0.6783,103,34,-4,REJECT,NON_MEDICINE,low_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+10,Name,0.9713,29,16,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+11,Age / Gonder,0.9389,60,20,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+12,to yoe /Mal pmone No.,0.7569,121,32,3,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_text_length;reasonable_region_size
+13,Address,0.9996,38,16,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+14,R,0.9998,40,38,3,PASS_TO_ML,NON_MEDICINE,high_ocr_confidence;reasonable_region_size
+15,K/e10- Hypestarion stypthyr,0.5801,219,42,0,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_region_size
+16,ale -Freve sinw 3 days,0.7537,152,38,1,REVIEW,NON_MEDICINE,moderate_ocr_confidence;clinical_pattern;reasonable_text_length;reasonable_region_size
+17,2,0.8937,25,32,2,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_region_size
+18,BP-1250/20,0.8145,82,53,-4,REJECT,NON_MEDICINE,moderate_ocr_confidence;non_medicine_keyword;clinical_pattern;reasonable_text_length;reasonable_region_size
+19,Dak Hamle Snydy,0.6638,170,50,1,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+20,PR. 80 bpm,0.8434,101,61,-4,REJECT,NON_MEDICINE,moderate_ocr_confidence;non_medicine_keyword;clinical_pattern;reasonable_text_length;reasonable_region_size
+21,0y,0.4737,44,16,0,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_region_size
+22,rab.Arwatsmp -20dy,0.766,175,55,3,PASS_TO_ML,MEDICINE,moderate_ocr_confidence;reasonable_text_length;reasonable_region_size
+23,Dwerligels,0.5683,98,71,1,REVIEW,UNCERTAIN,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+24,0,0.3643,46,21,0,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_region_size
+25,2ahx-3,0.4899,187,57,1,REVIEW,MEDICINE,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+26,OEP,0.7826,45,38,3,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_text_length;reasonable_region_size
+27,CVE,0.8831,46,36,3,PASS_TO_ML,NON_MEDICINE,moderate_ocr_confidence;reasonable_text_length;reasonable_region_size
+28,Toh Splefot20d,0.5004,186,58,1,REVIEW,MEDICINE,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+29,ECG,0.9965,53,42,-1,REVIEW,NON_MEDICINE,high_ocr_confidence;non_medicine_keyword;reasonable_text_length;reasonable_region_size
+30,xー00,0.5109,83,32,1,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+31,上#,0.4196,124,86,0,REVIEW,NON_MEDICINE,low_ocr_confidence;reasonable_region_size
+32,Zgagm,0.6344,88,87,1,REVIEW,UNCERTAIN,low_ocr_confidence;reasonable_text_length;reasonable_region_size
+33,Dengu,0.9853,62,54,4,PASS_TO_ML,NON_MEDICINE,high_ocr_confidence;reasonable_text_length;reasonable_region_size

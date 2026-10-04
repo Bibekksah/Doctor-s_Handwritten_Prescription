@@ -1,0 +1,1377 @@
+{
+  "experiment": "OCR_ML003_INTEGRATION",
+  "description": "Qualitative integration test of PaddleOCR candidate regions with the ML-003 ResNet-18 ONNX medicine classifier.",
+  "input_image": "data/ocr_samples/images.jpeg",
+  "ocr_result_file": "ml/results/ocr/existing_ocr_result.json",
+  "model": "ml/results/optimization/ML003_resnet18.onnx",
+  "image_size": {
+    "width": 387,
+    "height": 516
+  },
+  "ocr_region_count": 33,
+  "successful_regions": 33,
+  "failed_regions": 0,
+  "ml003_class_count": 78,
+  "preprocessing": "P1 grayscale",
+  "top_k": 3,
+  "padding_ratio": 0.05,
+  "inference_provider": "CPUExecutionProvider",
+  "total_ml003_latency_ms": 188.25219200152787,
+  "mean_ml003_latency_ms": 5.704611878834178,
+  "results": [
+    {
+      "region_id": 1,
+      "ocr_text": "SAI CLINIC",
+      "ocr_confidence": 0.9987564086914062,
+      "ocr_bbox": {
+        "x": 47.0,
+        "y": 29.0,
+        "width": 151.0,
+        "height": 25.0
+      },
+      "crop_box": [
+        39,
+        28,
+        206,
+        55
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_01.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.8649789094924927
+        },
+        {
+          "rank": 2,
+          "class_index": 59,
+          "medicine_name": "Nizoder",
+          "confidence": 0.023459747433662415
+        },
+        {
+          "rank": 3,
+          "class_index": 35,
+          "medicine_name": "Flexibac",
+          "confidence": 0.013023186475038528
+        }
+      ],
+      "ml003_top1_medicine": "Nexum",
+      "ml003_top1_confidence": 0.8649789094924927,
+      "ml003_latency_ms": 4.4847399985883385
+    },
+    {
+      "region_id": 2,
+      "ocr_text": "Dr. Y. Lavanya",
+      "ocr_confidence": 0.8437924385070801,
+      "ocr_bbox": {
+        "x": 228.0,
+        "y": 28.0,
+        "width": 51.0,
+        "height": 15.0
+      },
+      "crop_box": [
+        225,
+        27,
+        282,
+        44
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_02.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.4571078419685364
+        },
+        {
+          "rank": 2,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.4049088954925537
+        },
+        {
+          "rank": 3,
+          "class_index": 49,
+          "medicine_name": "Metsina",
+          "confidence": 0.021784279495477676
+        }
+      ],
+      "ml003_top1_medicine": "Nexum",
+      "ml003_top1_confidence": 0.4571078419685364,
+      "ml003_latency_ms": 4.1275740004493855
+    },
+    {
+      "region_id": 3,
+      "ocr_text": "Near Ambedkar Staue, Miyapur",
+      "ocr_confidence": 0.8780481219291687,
+      "ocr_bbox": {
+        "x": 45.0,
+        "y": 50.0,
+        "width": 125.0,
+        "height": 17.0
+      },
+      "crop_box": [
+        39,
+        49,
+        176,
+        68
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_03.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 74,
+          "medicine_name": "Tridosil",
+          "confidence": 0.5782608985900879
+        },
+        {
+          "rank": 2,
+          "class_index": 72,
+          "medicine_name": "Tamen",
+          "confidence": 0.4088706374168396
+        },
+        {
+          "rank": 3,
+          "class_index": 75,
+          "medicine_name": "Trilock",
+          "confidence": 0.011577240191400051
+        }
+      ],
+      "ml003_top1_medicine": "Tridosil",
+      "ml003_top1_confidence": 0.5782608985900879,
+      "ml003_latency_ms": 4.061375999299344
+    },
+    {
+      "region_id": 4,
+      "ocr_text": "De K. Chanakya Chandra Katar",
+      "ocr_confidence": 0.6878222227096558,
+      "ocr_bbox": {
+        "x": 229.0,
+        "y": 51.0,
+        "width": 102.0,
+        "height": 14.0
+      },
+      "crop_box": [
+        224,
+        50,
+        336,
+        66
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_04.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.26403549313545227
+        },
+        {
+          "rank": 2,
+          "class_index": 74,
+          "medicine_name": "Tridosil",
+          "confidence": 0.22386343777179718
+        },
+        {
+          "rank": 3,
+          "class_index": 72,
+          "medicine_name": "Tamen",
+          "confidence": 0.1643330305814743
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.26403549313545227,
+      "ml003_latency_ms": 4.468177998205647
+    },
+    {
+      "region_id": 5,
+      "ocr_text": "Hyderabad",
+      "ocr_confidence": 0.9806641340255737,
+      "ocr_bbox": {
+        "x": 47.0,
+        "y": 62.0,
+        "width": 49.0,
+        "height": 13.0
+      },
+      "crop_box": [
+        45,
+        61,
+        98,
+        76
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_05.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9189355373382568
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.06319353729486465
+        },
+        {
+          "rank": 3,
+          "class_index": 36,
+          "medicine_name": "Flexilax",
+          "confidence": 0.007072417996823788
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9189355373382568,
+      "ml003_latency_ms": 4.179267001745757
+    },
+    {
+      "region_id": 6,
+      "ocr_text": "Begd No :60237",
+      "ocr_confidence": 0.72757488489151,
+      "ocr_bbox": {
+        "x": 231.0,
+        "y": 66.0,
+        "width": 55.0,
+        "height": 12.0
+      },
+      "crop_box": [
+        228,
+        65,
+        289,
+        79
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_06.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.44222399592399597
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.12426405400037766
+        },
+        {
+          "rank": 3,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.09357081353664398
+        }
+      ],
+      "ml003_top1_medicine": "Diflu",
+      "ml003_top1_confidence": 0.44222399592399597,
+      "ml003_latency_ms": 4.083519001142122
+    },
+    {
+      "region_id": 7,
+      "ocr_text": "H00S",
+      "ocr_confidence": 0.5709989070892334,
+      "ocr_bbox": {
+        "x": 232.0,
+        "y": 62.0,
+        "width": 27.0,
+        "height": 9.0
+      },
+      "crop_box": [
+        231,
+        62,
+        260,
+        71
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_07.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.47354334592819214
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.11910708993673325
+        },
+        {
+          "rank": 3,
+          "class_index": 67,
+          "medicine_name": "Ritch",
+          "confidence": 0.08411688357591629
+        }
+      ],
+      "ml003_top1_medicine": "Diflu",
+      "ml003_top1_confidence": 0.47354334592819214,
+      "ml003_latency_ms": 4.152564000833081
+    },
+    {
+      "region_id": 8,
+      "ocr_text": "Tet",
+      "ocr_confidence": 0.9509921669960022,
+      "ocr_bbox": {
+        "x": 120.0,
+        "y": 76.0,
+        "width": 42.0,
+        "height": 29.0
+      },
+      "crop_box": [
+        118,
+        75,
+        164,
+        106
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_08.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.6867997050285339
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.1984798014163971
+        },
+        {
+          "rank": 3,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.027731968089938164
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.6867997050285339,
+      "ml003_latency_ms": 7.640616000571754
+    },
+    {
+      "region_id": 9,
+      "ocr_text": "Date tnltet 2022",
+      "ocr_confidence": 0.6783320307731628,
+      "ocr_bbox": {
+        "x": 242.0,
+        "y": 75.0,
+        "width": 103.0,
+        "height": 34.0
+      },
+      "crop_box": [
+        237,
+        73,
+        350,
+        111
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_09.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.7874900698661804
+        },
+        {
+          "rank": 2,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.056054458022117615
+        },
+        {
+          "rank": 3,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.04403543472290039
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.7874900698661804,
+      "ml003_latency_ms": 7.466104998457013
+    },
+    {
+      "region_id": 10,
+      "ocr_text": "Name",
+      "ocr_confidence": 0.971263587474823,
+      "ocr_bbox": {
+        "x": 47.0,
+        "y": 91.0,
+        "width": 29.0,
+        "height": 16.0
+      },
+      "crop_box": [
+        46,
+        90,
+        77,
+        108
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_10.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.2602629065513611
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.2270093858242035
+        },
+        {
+          "rank": 3,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.11419554799795151
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.2602629065513611,
+      "ml003_latency_ms": 7.305489998543635
+    },
+    {
+      "region_id": 11,
+      "ocr_text": "Age / Gonder",
+      "ocr_confidence": 0.938901960849762,
+      "ocr_bbox": {
+        "x": 45.0,
+        "y": 102.0,
+        "width": 60.0,
+        "height": 20.0
+      },
+      "crop_box": [
+        42,
+        101,
+        108,
+        123
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_11.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.7016355395317078
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.17266415059566498
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.02684389427304268
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.7016355395317078,
+      "ml003_latency_ms": 7.509207000111928
+    },
+    {
+      "region_id": 12,
+      "ocr_text": "to yoe /Mal pmone No.",
+      "ocr_confidence": 0.7568586468696594,
+      "ocr_bbox": {
+        "x": 127.0,
+        "y": 94.0,
+        "width": 121.0,
+        "height": 32.0
+      },
+      "crop_box": [
+        121,
+        92,
+        254,
+        128
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_12.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9944583177566528
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.003845976898446679
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.0007188900490291417
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9944583177566528,
+      "ml003_latency_ms": 6.083738000597805
+    },
+    {
+      "region_id": 13,
+      "ocr_text": "Address",
+      "ocr_confidence": 0.9995660781860352,
+      "ocr_bbox": {
+        "x": 46.0,
+        "y": 119.0,
+        "width": 38.0,
+        "height": 16.0
+      },
+      "crop_box": [
+        44,
+        118,
+        86,
+        136
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_13.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.7935851216316223
+        },
+        {
+          "rank": 2,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.05140658840537071
+        },
+        {
+          "rank": 3,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.04878978431224823
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.7935851216316223,
+      "ml003_latency_ms": 7.123576000594767
+    },
+    {
+      "region_id": 14,
+      "ocr_text": "R",
+      "ocr_confidence": 0.9997901320457458,
+      "ocr_bbox": {
+        "x": 43.0,
+        "y": 147.0,
+        "width": 40.0,
+        "height": 38.0
+      },
+      "crop_box": [
+        41,
+        145,
+        85,
+        187
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_14.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.7093949317932129
+        },
+        {
+          "rank": 2,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.06990808248519897
+        },
+        {
+          "rank": 3,
+          "class_index": 54,
+          "medicine_name": "Napa",
+          "confidence": 0.06163683161139488
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.7093949317932129,
+      "ml003_latency_ms": 11.006477998307673
+    },
+    {
+      "region_id": 15,
+      "ocr_text": "K/e10- Hypestarion stypthyr",
+      "ocr_confidence": 0.5801141858100891,
+      "ocr_bbox": {
+        "x": 120.0,
+        "y": 147.0,
+        "width": 219.0,
+        "height": 42.0
+      },
+      "crop_box": [
+        109,
+        145,
+        350,
+        191
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_15.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9613279104232788
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.012708953581750393
+        },
+        {
+          "rank": 3,
+          "class_index": 67,
+          "medicine_name": "Ritch",
+          "confidence": 0.004999634809792042
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9613279104232788,
+      "ml003_latency_ms": 4.3012579990318045
+    },
+    {
+      "region_id": 16,
+      "ocr_text": "ale -Freve sinw 3 days",
+      "ocr_confidence": 0.753683865070343,
+      "ocr_bbox": {
+        "x": 138.0,
+        "y": 175.0,
+        "width": 152.0,
+        "height": 38.0
+      },
+      "crop_box": [
+        130,
+        173,
+        298,
+        215
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_16.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9950778484344482
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.0034248267766088247
+        },
+        {
+          "rank": 3,
+          "class_index": 36,
+          "medicine_name": "Flexilax",
+          "confidence": 0.0004730925429612398
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9950778484344482,
+      "ml003_latency_ms": 4.240995000145631
+    },
+    {
+      "region_id": 17,
+      "ocr_text": "2",
+      "ocr_confidence": 0.8937152624130249,
+      "ocr_bbox": {
+        "x": 219.0,
+        "y": 207.0,
+        "width": 25.0,
+        "height": 32.0
+      },
+      "crop_box": [
+        218,
+        205,
+        245,
+        241
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_17.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.8953180313110352
+        },
+        {
+          "rank": 2,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.055503811687231064
+        },
+        {
+          "rank": 3,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.0173979252576828
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.8953180313110352,
+      "ml003_latency_ms": 5.032746998040238
+    },
+    {
+      "region_id": 18,
+      "ocr_text": "BP-1250/20",
+      "ocr_confidence": 0.8144855499267578,
+      "ocr_bbox": {
+        "x": 51.0,
+        "y": 202.0,
+        "width": 82.0,
+        "height": 53.0
+      },
+      "crop_box": [
+        47,
+        199,
+        137,
+        258
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_18.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.33641737699508667
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.13762813806533813
+        },
+        {
+          "rank": 3,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.1366102695465088
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.33641737699508667,
+      "ml003_latency_ms": 4.0492949992767535
+    },
+    {
+      "region_id": 19,
+      "ocr_text": "Dak Hamle Snydy",
+      "ocr_confidence": 0.6638344526290894,
+      "ocr_bbox": {
+        "x": 188.0,
+        "y": 220.0,
+        "width": 170.0,
+        "height": 50.0
+      },
+      "crop_box": [
+        180,
+        218,
+        366,
+        272
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_19.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9902572631835938
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.006576234474778175
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.0005659722373820841
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9902572631835938,
+      "ml003_latency_ms": 4.242677001457196
+    },
+    {
+      "region_id": 20,
+      "ocr_text": "PR. 80 bpm",
+      "ocr_confidence": 0.8434327840805054,
+      "ocr_bbox": {
+        "x": 50.0,
+        "y": 216.0,
+        "width": 101.0,
+        "height": 61.0
+      },
+      "crop_box": [
+        45,
+        213,
+        156,
+        280
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_20.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.6640328168869019
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.14325487613677979
+        },
+        {
+          "rank": 3,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.053437910974025726
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.6640328168869019,
+      "ml003_latency_ms": 4.105977001017891
+    },
+    {
+      "region_id": 21,
+      "ocr_text": "0y",
+      "ocr_confidence": 0.4736810326576233,
+      "ocr_bbox": {
+        "x": 246.0,
+        "y": 258.0,
+        "width": 44.0,
+        "height": 16.0
+      },
+      "crop_box": [
+        244,
+        257,
+        292,
+        275
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_21.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.33973002433776855
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.16691309213638306
+        },
+        {
+          "rank": 3,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.1376892477273941
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.33973002433776855,
+      "ml003_latency_ms": 5.161973000213038
+    },
+    {
+      "region_id": 22,
+      "ocr_text": "rab.Arwatsmp -20dy",
+      "ocr_confidence": 0.765968382358551,
+      "ocr_bbox": {
+        "x": 183.0,
+        "y": 256.0,
+        "width": 175.0,
+        "height": 55.0
+      },
+      "crop_box": [
+        174,
+        253,
+        367,
+        314
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_22.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9962577819824219
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.001630939543247223
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.0007606634171679616
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9962577819824219,
+      "ml003_latency_ms": 4.29777300087153
+    },
+    {
+      "region_id": 23,
+      "ocr_text": "Dwerligels",
+      "ocr_confidence": 0.5682723522186279,
+      "ocr_bbox": {
+        "x": 5.0,
+        "y": 276.0,
+        "width": 98.0,
+        "height": 71.0
+      },
+      "crop_box": [
+        0,
+        272,
+        108,
+        351
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_23.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.467555969953537
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.35102564096450806
+        },
+        {
+          "rank": 3,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.06116064637899399
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.467555969953537,
+      "ml003_latency_ms": 4.039020001073368
+    },
+    {
+      "region_id": 24,
+      "ocr_text": "0",
+      "ocr_confidence": 0.3643251061439514,
+      "ocr_bbox": {
+        "x": 242.0,
+        "y": 295.0,
+        "width": 46.0,
+        "height": 21.0
+      },
+      "crop_box": [
+        240,
+        294,
+        290,
+        317
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_24.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.3088352382183075
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.2335391342639923
+        },
+        {
+          "rank": 3,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.2094828188419342
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.3088352382183075,
+      "ml003_latency_ms": 4.1340140014654025
+    },
+    {
+      "region_id": 25,
+      "ocr_text": "2ahx-3",
+      "ocr_confidence": 0.48989883065223694,
+      "ocr_bbox": {
+        "x": 184.0,
+        "y": 297.0,
+        "width": 187.0,
+        "height": 57.0
+      },
+      "crop_box": [
+        175,
+        294,
+        380,
+        357
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_25.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.9985337257385254
+        },
+        {
+          "rank": 2,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.0006085236673243344
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.00019220788090024143
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.9985337257385254,
+      "ml003_latency_ms": 4.131349996896461
+    },
+    {
+      "region_id": 26,
+      "ocr_text": "OEP",
+      "ocr_confidence": 0.7826462388038635,
+      "ocr_bbox": {
+        "x": 31.0,
+        "y": 321.0,
+        "width": 45.0,
+        "height": 38.0
+      },
+      "crop_box": [
+        29,
+        319,
+        78,
+        361
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_26.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.2903948128223419
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.27741527557373047
+        },
+        {
+          "rank": 3,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.22004814445972443
+        }
+      ],
+      "ml003_top1_medicine": "Rhinil",
+      "ml003_top1_confidence": 0.2903948128223419,
+      "ml003_latency_ms": 4.284491998987505
+    },
+    {
+      "region_id": 27,
+      "ocr_text": "CVE",
+      "ocr_confidence": 0.8830549120903015,
+      "ocr_bbox": {
+        "x": 31.0,
+        "y": 340.0,
+        "width": 46.0,
+        "height": 36.0
+      },
+      "crop_box": [
+        29,
+        338,
+        79,
+        378
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_27.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.24163345992565155
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.23464013636112213
+        },
+        {
+          "rank": 3,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.2031562328338623
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.24163345992565155,
+      "ml003_latency_ms": 4.340266001236159
+    },
+    {
+      "region_id": 28,
+      "ocr_text": "Toh Splefot20d",
+      "ocr_confidence": 0.500434398651123,
+      "ocr_bbox": {
+        "x": 188.0,
+        "y": 334.0,
+        "width": 186.0,
+        "height": 58.0
+      },
+      "crop_box": [
+        179,
+        331,
+        383,
+        395
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_28.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.99866783618927
+        },
+        {
+          "rank": 2,
+          "class_index": 70,
+          "medicine_name": "Rozith",
+          "confidence": 0.00044400556362234056
+        },
+        {
+          "rank": 3,
+          "class_index": 57,
+          "medicine_name": "Nexum",
+          "confidence": 0.0002782643132377416
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.99866783618927,
+      "ml003_latency_ms": 4.1891949986165855
+    },
+    {
+      "region_id": 29,
+      "ocr_text": "ECG",
+      "ocr_confidence": 0.9965408444404602,
+      "ocr_bbox": {
+        "x": 32.0,
+        "y": 354.0,
+        "width": 53.0,
+        "height": 42.0
+      },
+      "crop_box": [
+        29,
+        352,
+        88,
+        398
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_29.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.35533633828163147
+        },
+        {
+          "rank": 2,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.2706035375595093
+        },
+        {
+          "rank": 3,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.14459992945194244
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.35533633828163147,
+      "ml003_latency_ms": 9.912047000398161
+    },
+    {
+      "region_id": 30,
+      "ocr_text": "xー00",
+      "ocr_confidence": 0.5108910799026489,
+      "ocr_bbox": {
+        "x": 211.0,
+        "y": 377.0,
+        "width": 83.0,
+        "height": 32.0
+      },
+      "crop_box": [
+        207,
+        375,
+        298,
+        411
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_30.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.6178171634674072
+        },
+        {
+          "rank": 2,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.09416045993566513
+        },
+        {
+          "rank": 3,
+          "class_index": 39,
+          "medicine_name": "Ketoral",
+          "confidence": 0.05014435946941376
+        }
+      ],
+      "ml003_top1_medicine": "Ketotab",
+      "ml003_top1_confidence": 0.6178171634674072,
+      "ml003_latency_ms": 10.168316002818756
+    },
+    {
+      "region_id": 31,
+      "ocr_text": "上#",
+      "ocr_confidence": 0.41959112882614136,
+      "ocr_bbox": {
+        "x": 235.0,
+        "y": 403.0,
+        "width": 124.0,
+        "height": 86.0
+      },
+      "crop_box": [
+        229,
+        399,
+        365,
+        493
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_31.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.5814079642295837
+        },
+        {
+          "rank": 2,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.22663865983486176
+        },
+        {
+          "rank": 3,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.04894736781716347
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.5814079642295837,
+      "ml003_latency_ms": 8.944110002630623
+    },
+    {
+      "region_id": 32,
+      "ocr_text": "Zgagm",
+      "ocr_confidence": 0.6343910694122314,
+      "ocr_bbox": {
+        "x": 97.0,
+        "y": 384.0,
+        "width": 88.0,
+        "height": 87.0
+      },
+      "crop_box": [
+        93,
+        380,
+        189,
+        475
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_32.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.9486363530158997
+        },
+        {
+          "rank": 2,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.015750547870993614
+        },
+        {
+          "rank": 3,
+          "class_index": 22,
+          "medicine_name": "Diflu",
+          "confidence": 0.010992394760251045
+        }
+      ],
+      "ml003_top1_medicine": "Az",
+      "ml003_top1_confidence": 0.9486363530158997,
+      "ml003_latency_ms": 6.730224999046186
+    },
+    {
+      "region_id": 33,
+      "ocr_text": "Dengu",
+      "ocr_confidence": 0.9853019714355469,
+      "ocr_bbox": {
+        "x": 62.0,
+        "y": 438.0,
+        "width": 62.0,
+        "height": 54.0
+      },
+      "crop_box": [
+        59,
+        435,
+        127,
+        495
+      ],
+      "crop_path": "ml/results/ocr_ml003/crops/region_33.jpg",
+      "ml003_predictions": [
+        {
+          "rank": 1,
+          "class_index": 66,
+          "medicine_name": "Rhinil",
+          "confidence": 0.49401921033859253
+        },
+        {
+          "rank": 2,
+          "class_index": 40,
+          "medicine_name": "Ketotab",
+          "confidence": 0.38043898344039917
+        },
+        {
+          "rank": 3,
+          "class_index": 6,
+          "medicine_name": "Az",
+          "confidence": 0.047929175198078156
+        }
+      ],
+      "ml003_top1_medicine": "Rhinil",
+      "ml003_top1_confidence": 0.49401921033859253,
+      "ml003_latency_ms": 8.254034000856336
+    }
+  ],
+  "visualization": "ml/results/ocr_ml003/ocr_ml003_predictions.jpg"
+}

@@ -1,0 +1,1000 @@
+{
+  "engine": "PaddleOCR",
+  "image": "/core/final_year_project2/data/ocr_samples/images.jpeg",
+  "image_width": 387,
+  "image_height": 516,
+  "processing_time_seconds": 17.8822,
+  "detected_region_count": 33,
+  "regions": [
+    {
+      "region_id": 1,
+      "text": "SAI CLINIC",
+      "recognition_confidence": 0.9987564086914062,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          47,
+          29
+        ],
+        [
+          197,
+          29
+        ],
+        [
+          197,
+          53
+        ],
+        [
+          47,
+          53
+        ]
+      ],
+      "bbox": {
+        "x": 47,
+        "y": 29,
+        "width": 151,
+        "height": 25
+      }
+    },
+    {
+      "region_id": 2,
+      "text": "Dr. Y. Lavanya",
+      "recognition_confidence": 0.8437924385070801,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          228,
+          28
+        ],
+        [
+          278,
+          28
+        ],
+        [
+          278,
+          42
+        ],
+        [
+          228,
+          42
+        ]
+      ],
+      "bbox": {
+        "x": 228,
+        "y": 28,
+        "width": 51,
+        "height": 15
+      }
+    },
+    {
+      "region_id": 3,
+      "text": "Near Ambedkar Staue, Miyapur",
+      "recognition_confidence": 0.8780481219291687,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          45,
+          51
+        ],
+        [
+          169,
+          50
+        ],
+        [
+          169,
+          64
+        ],
+        [
+          45,
+          66
+        ]
+      ],
+      "bbox": {
+        "x": 45,
+        "y": 50,
+        "width": 125,
+        "height": 17
+      }
+    },
+    {
+      "region_id": 4,
+      "text": "De K. Chanakya Chandra Katar",
+      "recognition_confidence": 0.6878222227096558,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          229,
+          51
+        ],
+        [
+          330,
+          51
+        ],
+        [
+          330,
+          64
+        ],
+        [
+          229,
+          64
+        ]
+      ],
+      "bbox": {
+        "x": 229,
+        "y": 51,
+        "width": 102,
+        "height": 14
+      }
+    },
+    {
+      "region_id": 5,
+      "text": "Hyderabad",
+      "recognition_confidence": 0.9806641340255737,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          47,
+          62
+        ],
+        [
+          95,
+          62
+        ],
+        [
+          95,
+          74
+        ],
+        [
+          47,
+          74
+        ]
+      ],
+      "bbox": {
+        "x": 47,
+        "y": 62,
+        "width": 49,
+        "height": 13
+      }
+    },
+    {
+      "region_id": 6,
+      "text": "Begd No :60237",
+      "recognition_confidence": 0.72757488489151,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          231,
+          66
+        ],
+        [
+          285,
+          66
+        ],
+        [
+          285,
+          77
+        ],
+        [
+          231,
+          77
+        ]
+      ],
+      "bbox": {
+        "x": 231,
+        "y": 66,
+        "width": 55,
+        "height": 12
+      }
+    },
+    {
+      "region_id": 7,
+      "text": "H00S",
+      "recognition_confidence": 0.5709989070892334,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          232,
+          62
+        ],
+        [
+          258,
+          62
+        ],
+        [
+          258,
+          70
+        ],
+        [
+          232,
+          70
+        ]
+      ],
+      "bbox": {
+        "x": 232,
+        "y": 62,
+        "width": 27,
+        "height": 9
+      }
+    },
+    {
+      "region_id": 8,
+      "text": "Tet",
+      "recognition_confidence": 0.9509921669960022,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          120,
+          79
+        ],
+        [
+          159,
+          76
+        ],
+        [
+          161,
+          101
+        ],
+        [
+          122,
+          104
+        ]
+      ],
+      "bbox": {
+        "x": 120,
+        "y": 76,
+        "width": 42,
+        "height": 29
+      }
+    },
+    {
+      "region_id": 9,
+      "text": "Date tnltet 2022",
+      "recognition_confidence": 0.6783320307731628,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          242,
+          81
+        ],
+        [
+          343,
+          75
+        ],
+        [
+          344,
+          102
+        ],
+        [
+          244,
+          108
+        ]
+      ],
+      "bbox": {
+        "x": 242,
+        "y": 75,
+        "width": 103,
+        "height": 34
+      }
+    },
+    {
+      "region_id": 10,
+      "text": "Name",
+      "recognition_confidence": 0.971263587474823,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          47,
+          91
+        ],
+        [
+          75,
+          91
+        ],
+        [
+          75,
+          106
+        ],
+        [
+          47,
+          106
+        ]
+      ],
+      "bbox": {
+        "x": 47,
+        "y": 91,
+        "width": 29,
+        "height": 16
+      }
+    },
+    {
+      "region_id": 11,
+      "text": "Age / Gonder",
+      "recognition_confidence": 0.938901960849762,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          45,
+          104
+        ],
+        [
+          103,
+          102
+        ],
+        [
+          104,
+          119
+        ],
+        [
+          46,
+          121
+        ]
+      ],
+      "bbox": {
+        "x": 45,
+        "y": 102,
+        "width": 60,
+        "height": 20
+      }
+    },
+    {
+      "region_id": 12,
+      "text": "to yoe /Mal pmone No.",
+      "recognition_confidence": 0.7568586468696594,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          127,
+          98
+        ],
+        [
+          246,
+          94
+        ],
+        [
+          247,
+          122
+        ],
+        [
+          128,
+          125
+        ]
+      ],
+      "bbox": {
+        "x": 127,
+        "y": 94,
+        "width": 121,
+        "height": 32
+      }
+    },
+    {
+      "region_id": 13,
+      "text": "Address",
+      "recognition_confidence": 0.9995660781860352,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          46,
+          119
+        ],
+        [
+          83,
+          119
+        ],
+        [
+          83,
+          134
+        ],
+        [
+          46,
+          134
+        ]
+      ],
+      "bbox": {
+        "x": 46,
+        "y": 119,
+        "width": 38,
+        "height": 16
+      }
+    },
+    {
+      "region_id": 14,
+      "text": "R",
+      "recognition_confidence": 0.9997901320457458,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          43,
+          147
+        ],
+        [
+          82,
+          147
+        ],
+        [
+          82,
+          184
+        ],
+        [
+          43,
+          184
+        ]
+      ],
+      "bbox": {
+        "x": 43,
+        "y": 147,
+        "width": 40,
+        "height": 38
+      }
+    },
+    {
+      "region_id": 15,
+      "text": "K/e10- Hypestarion stypthyr",
+      "recognition_confidence": 0.5801141858100891,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          120,
+          157
+        ],
+        [
+          337,
+          147
+        ],
+        [
+          338,
+          178
+        ],
+        [
+          122,
+          188
+        ]
+      ],
+      "bbox": {
+        "x": 120,
+        "y": 147,
+        "width": 219,
+        "height": 42
+      }
+    },
+    {
+      "region_id": 16,
+      "text": "ale -Freve sinw 3 days",
+      "recognition_confidence": 0.753683865070343,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          138,
+          185
+        ],
+        [
+          287,
+          175
+        ],
+        [
+          289,
+          202
+        ],
+        [
+          140,
+          212
+        ]
+      ],
+      "bbox": {
+        "x": 138,
+        "y": 175,
+        "width": 152,
+        "height": 38
+      }
+    },
+    {
+      "region_id": 17,
+      "text": "2",
+      "recognition_confidence": 0.8937152624130249,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          219,
+          209
+        ],
+        [
+          240,
+          207
+        ],
+        [
+          243,
+          235
+        ],
+        [
+          222,
+          238
+        ]
+      ],
+      "bbox": {
+        "x": 219,
+        "y": 207,
+        "width": 25,
+        "height": 32
+      }
+    },
+    {
+      "region_id": 18,
+      "text": "BP-1250/20",
+      "recognition_confidence": 0.8144855499267578,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          51,
+          228
+        ],
+        [
+          122,
+          202
+        ],
+        [
+          132,
+          227
+        ],
+        [
+          60,
+          254
+        ]
+      ],
+      "bbox": {
+        "x": 51,
+        "y": 202,
+        "width": 82,
+        "height": 53
+      }
+    },
+    {
+      "region_id": 19,
+      "text": "Dak Hamle Snydy",
+      "recognition_confidence": 0.6638344526290894,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          188,
+          239
+        ],
+        [
+          354,
+          220
+        ],
+        [
+          357,
+          250
+        ],
+        [
+          192,
+          269
+        ]
+      ],
+      "bbox": {
+        "x": 188,
+        "y": 220,
+        "width": 170,
+        "height": 50
+      }
+    },
+    {
+      "region_id": 20,
+      "text": "PR. 80 bpm",
+      "recognition_confidence": 0.8434327840805054,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          50,
+          251
+        ],
+        [
+          140,
+          216
+        ],
+        [
+          150,
+          241
+        ],
+        [
+          60,
+          276
+        ]
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 216,
+        "width": 101,
+        "height": 61
+      }
+    },
+    {
+      "region_id": 21,
+      "text": "0y",
+      "recognition_confidence": 0.4736810326576233,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          246,
+          258
+        ],
+        [
+          289,
+          258
+        ],
+        [
+          289,
+          273
+        ],
+        [
+          246,
+          273
+        ]
+      ],
+      "bbox": {
+        "x": 246,
+        "y": 258,
+        "width": 44,
+        "height": 16
+      }
+    },
+    {
+      "region_id": 22,
+      "text": "rab.Arwatsmp -20dy",
+      "recognition_confidence": 0.765968382358551,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          183,
+          278
+        ],
+        [
+          353,
+          256
+        ],
+        [
+          357,
+          287
+        ],
+        [
+          187,
+          310
+        ]
+      ],
+      "bbox": {
+        "x": 183,
+        "y": 256,
+        "width": 175,
+        "height": 55
+      }
+    },
+    {
+      "region_id": 23,
+      "text": "Dwerligels",
+      "recognition_confidence": 0.5682723522186279,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          5,
+          309
+        ],
+        [
+          88,
+          276
+        ],
+        [
+          102,
+          313
+        ],
+        [
+          19,
+          346
+        ]
+      ],
+      "bbox": {
+        "x": 5,
+        "y": 276,
+        "width": 98,
+        "height": 71
+      }
+    },
+    {
+      "region_id": 24,
+      "text": "0",
+      "recognition_confidence": 0.3643251061439514,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          242,
+          301
+        ],
+        [
+          285,
+          295
+        ],
+        [
+          287,
+          309
+        ],
+        [
+          244,
+          315
+        ]
+      ],
+      "bbox": {
+        "x": 242,
+        "y": 295,
+        "width": 46,
+        "height": 21
+      }
+    },
+    {
+      "region_id": 25,
+      "text": "2ahx-3",
+      "recognition_confidence": 0.48989883065223694,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          184,
+          319
+        ],
+        [
+          366,
+          297
+        ],
+        [
+          370,
+          331
+        ],
+        [
+          188,
+          353
+        ]
+      ],
+      "bbox": {
+        "x": 184,
+        "y": 297,
+        "width": 187,
+        "height": 57
+      }
+    },
+    {
+      "region_id": 26,
+      "text": "OEP",
+      "recognition_confidence": 0.7826462388038635,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          31,
+          338
+        ],
+        [
+          65,
+          321
+        ],
+        [
+          75,
+          340
+        ],
+        [
+          42,
+          358
+        ]
+      ],
+      "bbox": {
+        "x": 31,
+        "y": 321,
+        "width": 45,
+        "height": 38
+      }
+    },
+    {
+      "region_id": 27,
+      "text": "CVE",
+      "recognition_confidence": 0.8830549120903015,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          31,
+          355
+        ],
+        [
+          67,
+          340
+        ],
+        [
+          76,
+          360
+        ],
+        [
+          40,
+          375
+        ]
+      ],
+      "bbox": {
+        "x": 31,
+        "y": 340,
+        "width": 46,
+        "height": 36
+      }
+    },
+    {
+      "region_id": 28,
+      "text": "Toh Splefot20d",
+      "recognition_confidence": 0.500434398651123,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          188,
+          356
+        ],
+        [
+          369,
+          334
+        ],
+        [
+          373,
+          370
+        ],
+        [
+          193,
+          391
+        ]
+      ],
+      "bbox": {
+        "x": 188,
+        "y": 334,
+        "width": 186,
+        "height": 58
+      }
+    },
+    {
+      "region_id": 29,
+      "text": "ECG",
+      "recognition_confidence": 0.9965408444404602,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          32,
+          372
+        ],
+        [
+          73,
+          354
+        ],
+        [
+          84,
+          376
+        ],
+        [
+          42,
+          395
+        ]
+      ],
+      "bbox": {
+        "x": 32,
+        "y": 354,
+        "width": 53,
+        "height": 42
+      }
+    },
+    {
+      "region_id": 30,
+      "text": "xー00",
+      "recognition_confidence": 0.5108910799026489,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          211,
+          387
+        ],
+        [
+          291,
+          377
+        ],
+        [
+          293,
+          398
+        ],
+        [
+          213,
+          408
+        ]
+      ],
+      "bbox": {
+        "x": 211,
+        "y": 377,
+        "width": 83,
+        "height": 32
+      }
+    },
+    {
+      "region_id": 31,
+      "text": "上#",
+      "recognition_confidence": 0.41959112882614136,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          235,
+          418
+        ],
+        [
+          349,
+          403
+        ],
+        [
+          358,
+          473
+        ],
+        [
+          244,
+          488
+        ]
+      ],
+      "bbox": {
+        "x": 235,
+        "y": 403,
+        "width": 124,
+        "height": 86
+      }
+    },
+    {
+      "region_id": 32,
+      "text": "Zgagm",
+      "recognition_confidence": 0.6343910694122314,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          97,
+          444
+        ],
+        [
+          159,
+          384
+        ],
+        [
+          184,
+          411
+        ],
+        [
+          122,
+          470
+        ]
+      ],
+      "bbox": {
+        "x": 97,
+        "y": 384,
+        "width": 88,
+        "height": 87
+      }
+    },
+    {
+      "region_id": 33,
+      "text": "Dengu",
+      "recognition_confidence": 0.9853019714355469,
+      "detection_confidence": null,
+      "polygon": [
+        [
+          62,
+          459
+        ],
+        [
+          108,
+          438
+        ],
+        [
+          123,
+          470
+        ],
+        [
+          76,
+          491
+        ]
+      ],
+      "bbox": {
+        "x": 62,
+        "y": 438,
+        "width": 62,
+        "height": 54
+      }
+    }
+  ]
+}

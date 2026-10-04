@@ -1,97 +1,49 @@
+import torch
+
 from ml.dataloader import create_dataloaders
 
-def run_experiment():
-    train_loader, val_loader, test_loader = create_dataloaders(
-        batch_size=32
-    )
 
-<<<<<<< HEAD
 def main():
-
-    (
-        train_loader,
-        val_loader,
-        test_loader,
-        class_to_idx,
-        idx_to_class
-    ) = create_dataloaders(
-        batch_size=32
-    )
-
     print("=" * 60)
     print("DATALOADER TEST")
     print("=" * 60)
 
-    print("Training batches:", len(train_loader))
-    print("Validation batches:", len(val_loader))
-    print("Testing batches:", len(test_loader))
-
-    print("Medicine classes:", len(class_to_idx))
-
-    batch = next(iter(train_loader))
-
-    print("\nBatch information:")
-
-    print(
-        "Images:",
-        batch["image"].shape
+    train_loader, validation_loader, test_loader, class_to_idx, idx_to_class = (
+        create_dataloaders(batch_size=32)
     )
 
-    print(
-        "Labels:",
-        batch["label"].shape
+    print(f"Training batches: {len(train_loader)}")
+    print(f"Validation batches: {len(validation_loader)}")
+    print(f"Testing batches: {len(test_loader)}")
+    print(f"Medicine classes: {len(class_to_idx)}")
+
+    images, medicine_names, generic_names, image_paths, labels = next(
+        iter(train_loader)
     )
 
-    print(
-        "First medicine:",
-        batch["medicine_name"][0]
+    print(f"\nBatch image shape: {images.shape}")
+    print(f"Batch label shape: {labels.shape}")
+
+    print(f"First medicine: {medicine_names[0]}")
+    print(f"First generic: {generic_names[0]}")
+    print(f"First image: {image_paths[0]}")
+    print(f"First label: {labels[0].item()}")
+
+    print(f"\nImage dtype: {images.dtype}")
+    print(f"Image min: {images.min().item():.4f}")
+    print(f"Image max: {images.max().item():.4f}")
+
+    # Verify CNN input format
+    assert images.shape[1:] == (3, 64, 256), (
+        f"Unexpected image shape: {images.shape}"
     )
 
-    print(
-        "First label:",
-        batch["label"][0].item()
-    )
-
-    print(
-        "First generic:",
-        batch["generic_name"][0]
-    )
+    assert labels.shape[0] == images.shape[0]
 
     assert len(class_to_idx) == 78
 
-    assert batch["image"].shape[1:] == (
-        3,
-        64,
-        256
-    )
-
-    assert batch["label"].shape[0] == 32
-
-    print("\nDATALOADER TEST: PASS")
+    print("\nDataLoader test: PASS")
 
 
 if __name__ == "__main__":
     main()
-=======
-    print("=" * 50)
-    print("DATALOADER TEST")
-    print("=" * 50)
-
-    print("Training batches:", len(train_loader))
-    print("Validation batches:", len(val_loader))
-    print("Testing batches:", len(test_loader))
-
-    batch = next(iter(train_loader))
-
-    print("\nBatch information:")
-    print("Images:", batch["image"].shape)
-    print("Medicine labels:", len(batch["medicine_name"]))
-    print("Generic labels:", len(batch["generic_name"]))
-
-    print("\nFirst sample:")
-    print("Medicine:", batch["medicine_name"][0])
-    print("Generic:", batch["generic_name"][0])
-
-if __name__ == '__main__':
-    run_experiment()
->>>>>>> origin/computervision

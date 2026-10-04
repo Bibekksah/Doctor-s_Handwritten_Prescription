@@ -1,0 +1,92 @@
+ML-002 Test Classification Report
+================================================================================
+
+Accuracy : 19.23%
+Precision: 26.88%
+Recall   : 19.23%
+F1 Score : 17.28%
+
+              precision    recall  f1-score   support
+
+         Ace       0.64      0.70      0.67        10
+       Aceta       0.83      0.50      0.62        10
+     Alatrol       0.14      0.30      0.19        10
+      Amodis       0.23      0.70      0.34        10
+     Atrizin       0.10      0.80      0.17        10
+      Axodin       0.12      0.10      0.11        10
+          Az       0.91      1.00      0.95        10
+  Azithrocin       0.50      0.20      0.29        10
+       Azyth       0.00      0.00      0.00        10
+      Bacaid       0.30      0.60      0.40        10
+    Backtone       0.14      0.20      0.17        10
+    Baclofen       0.27      0.30      0.29        10
+      Baclon       0.00      0.00      0.00        10
+      Bacmax       1.00      0.20      0.33        10
+       Beklo       0.33      0.30      0.32        10
+     Bicozin       0.00      0.00      0.00        10
+    Canazole       0.00      0.00      0.00        10
+    Candinil       0.06      0.10      0.08        10
+    Cetisoft       0.00      0.00      0.00        10
+       Conaz       0.83      0.50      0.62        10
+      Dancel       0.00      0.00      0.00        10
+     Denixil       0.00      0.00      0.00        10
+       Diflu       0.00      0.00      0.00        10
+     Dinafex       0.00      0.00      0.00        10
+     Disopan       0.00      0.00      0.00        10
+      Esonix       0.12      0.10      0.11        10
+      Esoral       0.50      0.10      0.17        10
+      Etizin       0.16      0.50      0.24        10
+       Exium       0.14      0.30      0.19        10
+     Fenadin       0.10      0.30      0.15        10
+        Fexo       0.40      0.20      0.27        10
+    Fexofast       0.33      0.10      0.15        10
+      Filmet       0.00      0.00      0.00        10
+       Fixal       0.53      0.80      0.64        10
+      Flamyd       1.00      0.10      0.18        10
+    Flexibac       0.00      0.00      0.00        10
+    Flexilax       0.00      0.00      0.00        10
+      Flugal       0.00      0.00      0.00        10
+     Ketocon       0.00      0.00      0.00        10
+     Ketoral       0.00      0.00      0.00        10
+     Ketotab       1.00      0.10      0.18        10
+     Ketozol       0.11      0.10      0.11        10
+      Leptic       1.00      0.10      0.18        10
+     Lucan-R       0.40      0.20      0.27        10
+      Lumona       0.43      0.30      0.35        10
+      M-Kast       1.00      0.10      0.18        10
+      Maxima       0.12      0.10      0.11        10
+      Maxpro       0.00      0.00      0.00        10
+       Metro       0.33      0.10      0.15        10
+     Metsina       0.14      0.40      0.21        10
+       Monas       0.00      0.00      0.00        10
+     Montair       0.17      0.10      0.12        10
+     Montene       0.00      0.00      0.00        10
+      Montex       1.00      0.10      0.18        10
+        Napa       1.00      0.10      0.18        10
+ Napa Extend       0.17      0.80      0.28        10
+      Nexcap       0.33      0.10      0.15        10
+       Nexum       0.00      0.00      0.00        10
+     Nidazyl       0.50      0.10      0.17        10
+     Nizoder       0.00      0.00      0.00        10
+       Odmon       0.12      0.30      0.17        10
+     Omastin       0.10      0.30      0.15        10
+       Opton       0.33      0.10      0.15        10
+      Progut       0.00      0.00      0.00        10
+     Provair       0.00      0.00      0.00        10
+      Renova       0.20      0.10      0.13        10
+      Rhinil       0.30      0.30      0.30        10
+       Ritch       0.29      0.20      0.24        10
+    Rivotril       0.03      0.10      0.05        10
+     Romycin       0.07      0.10      0.08        10
+      Rozith       0.05      0.10      0.07        10
+      Sergel       0.75      0.30      0.43        10
+       Tamen       0.20      0.10      0.13        10
+     Telfast       0.07      0.10      0.08        10
+    Tridosil       0.13      0.20      0.16        10
+     Trilock       0.12      0.20      0.15        10
+       Vifas       0.71      0.50      0.59        10
+     Zithrin       0.09      0.20      0.12        10
+
+    accuracy                           0.19       780
+   macro avg       0.27      0.19      0.17       780
+weighted avg       0.27      0.19      0.17       780

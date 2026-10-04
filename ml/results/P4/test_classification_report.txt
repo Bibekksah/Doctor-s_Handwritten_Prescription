@@ -1,0 +1,107 @@
+MEDICINE CLASSIFIER TEST EVALUATION
+================================================================================
+
+Pipeline ID: P4
+Pipeline: Grayscale + Denoise + Otsu
+Checkpoint: best_model_P4.pth
+Device: cuda
+Device name: NVIDIA GeForce RTX 3050 6GB Laptop GPU
+Test samples: 780
+Number of classes: 78
+Best validation accuracy: 17.69%
+Best epoch: 5
+
+TEST METRICS
+--------------------------------------------------------------------------------
+Accuracy : 9.10%
+Precision: 7.71%
+Recall   : 9.10%
+F1 Score : 5.64%
+
+CLASSIFICATION REPORT
+================================================================================
+
+              precision    recall  f1-score   support
+
+         Ace       0.06      0.10      0.07        10
+       Aceta       0.05      0.30      0.08        10
+     Alatrol       0.00      0.00      0.00        10
+      Amodis       0.00      0.00      0.00        10
+     Atrizin       0.00      0.00      0.00        10
+      Axodin       0.10      0.10      0.10        10
+          Az       0.14      1.00      0.25        10
+  Azithrocin       0.40      0.60      0.48        10
+       Azyth       0.25      0.10      0.14        10
+      Bacaid       0.14      0.10      0.12        10
+    Backtone       0.23      0.60      0.33        10
+    Baclofen       0.10      0.40      0.15        10
+      Baclon       0.00      0.00      0.00        10
+      Bacmax       0.11      0.50      0.18        10
+       Beklo       0.00      0.00      0.00        10
+     Bicozin       0.00      0.00      0.00        10
+    Canazole       0.06      0.20      0.10        10
+    Candinil       0.00      0.00      0.00        10
+    Cetisoft       0.00      0.00      0.00        10
+       Conaz       0.14      0.70      0.23        10
+      Dancel       0.00      0.00      0.00        10
+     Denixil       0.33      0.10      0.15        10
+       Diflu       0.17      0.30      0.21        10
+     Dinafex       0.00      0.00      0.00        10
+     Disopan       0.00      0.00      0.00        10
+      Esonix       0.00      0.00      0.00        10
+      Esoral       0.00      0.00      0.00        10
+      Etizin       0.00      0.00      0.00        10
+       Exium       0.33      0.10      0.15        10
+     Fenadin       0.00      0.00      0.00        10
+        Fexo       0.00      0.00      0.00        10
+    Fexofast       0.25      0.10      0.14        10
+      Filmet       0.00      0.00      0.00        10
+       Fixal       0.06      0.20      0.09        10
+      Flamyd       0.00      0.00      0.00        10
+    Flexibac       0.00      0.00      0.00        10
+    Flexilax       1.00      0.10      0.18        10
+      Flugal       1.00      0.10      0.18        10
+     Ketocon       0.00      0.00      0.00        10
+     Ketoral       0.00      0.00      0.00        10
+     Ketotab       0.00      0.00      0.00        10
+     Ketozol       0.05      0.10      0.07        10
+      Leptic       0.00      0.00      0.00        10
+     Lucan-R       0.00      0.00      0.00        10
+      Lumona       0.00      0.00      0.00        10
+      M-Kast       0.00      0.00      0.00        10
+      Maxima       0.11      0.20      0.14        10
+      Maxpro       0.25      0.10      0.14        10
+       Metro       0.10      0.10      0.10        10
+     Metsina       0.00      0.00      0.00        10
+       Monas       0.00      0.00      0.00        10
+     Montair       0.00      0.00      0.00        10
+     Montene       0.00      0.00      0.00        10
+      Montex       0.00      0.00      0.00        10
+        Napa       0.00      0.00      0.00        10
+ Napa Extend       0.00      0.00      0.00        10
+      Nexcap       0.17      0.10      0.12        10
+       Nexum       0.00      0.00      0.00        10
+     Nidazyl       0.00      0.00      0.00        10
+     Nizoder       0.00      0.00      0.00        10
+       Odmon       0.00      0.00      0.00        10
+     Omastin       0.00      0.00      0.00        10
+       Opton       0.08      0.30      0.13        10
+      Progut       0.00      0.00      0.00        10
+     Provair       0.00      0.00      0.00        10
+      Renova       0.11      0.10      0.11        10
+      Rhinil       0.06      0.30      0.10        10
+       Ritch       0.00      0.00      0.00        10
+    Rivotril       0.17      0.10      0.12        10
+     Romycin       0.00      0.00      0.00        10
+      Rozith       0.00      0.00      0.00        10
+      Sergel       0.00      0.00      0.00        10
+       Tamen       0.00      0.00      0.00        10
+     Telfast       0.00      0.00      0.00        10
+    Tridosil       0.00      0.00      0.00        10
+     Trilock       0.00      0.00      0.00        10
+       Vifas       0.00      0.00      0.00        10
+     Zithrin       0.00      0.00      0.00        10
+
+    accuracy                           0.09       780
+   macro avg       0.08      0.09      0.06       780
+weighted avg       0.08      0.09      0.06       780

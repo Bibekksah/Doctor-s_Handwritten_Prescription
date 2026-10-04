@@ -1,0 +1,20 @@
+region_id,ocr_text,ocr_confidence,gate_score,gate_decision,ml_top1_medicine,ml_top1_class_id,ml_top1_confidence,ml_top2_medicine,ml_top2_class_id,ml_top2_confidence,ml_top3_medicine,ml_top3_class_id,ml_top3_confidence
+3,"Near Ambedkar Staue, Miyapur",0.878,2,REVIEW,Tridosil,74,0.838878,Tamen,72,0.140479,Trilock,75,0.013789
+6,Begd No :60237,0.7276,3,REVIEW,Diflu,22,0.598645,Az,6,0.143224,Vifas,76,0.060262
+8,Tet,0.951,4,REVIEW,Az,6,0.6868,Diflu,22,0.19848,Rhinil,66,0.027732
+12,to yoe /Mal pmone No.,0.7569,4,REVIEW,Ketotab,40,0.994434,Nexum,57,0.003722,Ketoral,39,0.00082
+14,R,0.9998,-3,REVIEW,Az,6,0.666562,Rhinil,66,0.059975,Napa,54,0.045743
+16,ale -Freve sinw 3 days,0.7537,0,REVIEW,Ketotab,40,0.994644,Nexum,57,0.003543,Flexilax,36,0.00046
+17,2,0.8937,-3,REVIEW,Az,6,0.878801,Rhinil,66,0.072271,Diflu,22,0.019929
+19,Dak Hamle Snydy,0.6638,1,REVIEW,Ketotab,40,0.990257,Nexum,57,0.006576,Ketoral,39,0.000566
+21,0y,0.4737,-4,REVIEW,Ketotab,40,0.513866,Ritch,67,0.096978,Diflu,22,0.093528
+22,rab.Arwatsmp -20dy,0.766,3,REVIEW,Ketotab,40,0.996889,Nexum,57,0.001375,Ketoral,39,0.000544
+23,Dwerligels,0.5683,2,REVIEW,Az,6,0.483587,Diflu,22,0.357018,Rhinil,66,0.038882
+24,0,0.3643,-6,REVIEW,Ketotab,40,0.308835,Diflu,22,0.233539,Az,6,0.209483
+25,2ahx-3,0.4899,0,REVIEW,Ketotab,40,0.997335,Nexum,57,0.001162,Ketoral,39,0.000256
+26,OEP,0.7826,2,REVIEW,Az,6,0.285619,Rhinil,66,0.281482,Ketotab,40,0.184759
+27,CVE,0.8831,3,REVIEW,Ketotab,40,0.292463,Az,6,0.225841,Diflu,22,0.199203
+28,Toh Splefot20d,0.5004,0,REVIEW,Ketotab,40,0.998362,Nexum,57,0.000578,Rozith,70,0.000334
+31,上#,0.4196,-4,REVIEW,Az,6,0.581408,Diflu,22,0.226639,Rhinil,66,0.048947
+32,Zgagm,0.6344,1,REVIEW,Az,6,0.948636,Rhinil,66,0.015751,Diflu,22,0.010992
+33,Dengu,0.9853,5,MEDICINE_CANDIDATE,Rhinil,66,0.62883,Ketotab,40,0.265812,Az,6,0.028627

@@ -1,0 +1,31 @@
+{
+    "experiment": "OPT-004",
+    "model": "ML-003 ResNet-18 ONNX INT8",
+    "model_path": "/core/final_year_project2/ml/results/optimization/ML003_resnet18_INT8_test.onnx",
+    "execution_provider": "CPUExecutionProvider",
+    "test_samples": 780,
+    "num_classes": 78,
+    "metrics": {
+        "accuracy": 0.8897435897435897,
+        "weighted_precision": 0.9051567200605662,
+        "weighted_recall": 0.8897435897435897,
+        "weighted_f1": 0.8850884025348442
+    },
+    "latency": {
+        "mean_ms": 23.299937579949983,
+        "median_ms": 23.285157499685738,
+        "min_ms": 23.000492000392114,
+        "max_ms": 24.168117999579408,
+        "throughput_images_per_second": 42.91856991327385
+    },
+    "model_size_mb": 10.785480499267578,
+    "reference": {
+        "pytorch_accuracy": 0.891,
+        "pytorch_weighted_f1": 0.8865,
+        "onnx_fp32_accuracy": 0.891,
+        "onnx_fp32_weighted_f1": 0.8865,
+        "onnx_fp32_mean_latency_ms": 6.066,
+        "onnx_fp32_throughput_images_per_second": 164.86,
+        "onnx_fp32_size_mb": 0.1075
+    }
+}

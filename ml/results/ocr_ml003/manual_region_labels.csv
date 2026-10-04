@@ -1,0 +1,34 @@
+region_id,label,reason
+1,NON_MEDICINE,clinic name
+2,NON_MEDICINE,doctor name
+3,NON_MEDICINE,address
+4,NON_MEDICINE,doctor/header
+5,NON_MEDICINE,location
+6,NON_MEDICINE,registration number
+7,NON_MEDICINE,header
+8,NON_MEDICINE,non-medicine text
+9,NON_MEDICINE,date
+10,NON_MEDICINE,patient field
+11,NON_MEDICINE,patient field
+12,NON_MEDICINE,contact field
+13,NON_MEDICINE,patient address
+14,NON_MEDICINE,prescription marker
+15,NON_MEDICINE,clinical history
+16,NON_MEDICINE,symptom/history
+17,NON_MEDICINE,dosage/number
+18,NON_MEDICINE,vital measurement
+19,NON_MEDICINE,clinical history
+20,NON_MEDICINE,vital measurement
+21,NON_MEDICINE,annotation
+22,MEDICINE,tablet prescription region
+23,UNCERTAIN,possible prescription item
+24,NON_MEDICINE,annotation
+25,MEDICINE,tablet prescription region
+26,NON_MEDICINE,clinical notation
+27,NON_MEDICINE,clinical notation
+28,MEDICINE,tablet prescription region
+29,NON_MEDICINE,investigation/test
+30,NON_MEDICINE,annotation
+31,NON_MEDICINE,signature
+32,UNCERTAIN,unclear handwriting
+33,NON_MEDICINE,disease/clinical text

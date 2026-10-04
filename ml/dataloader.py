@@ -1,6 +1,7 @@
 from pathlib import Path
 import platform
 
+import pandas as pd
 from torch.utils.data import DataLoader
 
 from ml.dataset import PrescriptionDataset
@@ -8,7 +9,12 @@ from ml.dataset import PrescriptionDataset
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-CSV_PATH = PROJECT_ROOT / "data" / "metadata" / "dataset.csv"
+CSV_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "metadata"
+    / "dataset.csv"
+)
 
 
 def get_num_workers():
@@ -22,8 +28,6 @@ def get_num_workers():
 
 
 def create_class_mapping():
-
-    import pandas as pd
 
     data = pd.read_csv(CSV_PATH)
 
@@ -47,32 +51,44 @@ def create_class_mapping():
     return class_to_idx, idx_to_class
 
 
-def create_dataloaders(batch_size=32):
+def create_dataloaders(
+    batch_size=32,
+    train_transform=None,
+    validation_transform=None,
+    test_transform=None,
+):
+    if train_transform is None:
+        from CV.preprocessing import get_grayscale_transform
+        train_transform = get_grayscale_transform()
+
+    if validation_transform is None:
+        from CV.preprocessing import get_grayscale_transform
+        validation_transform = get_grayscale_transform()
+
+    if test_transform is None:
+        from CV.preprocessing import get_grayscale_transform
+        test_transform = get_grayscale_transform()
 
     class_to_idx, idx_to_class = create_class_mapping()
-
-    from CV.preprocessing import get_baseline_transform
-
-    transform = get_baseline_transform()
 
     train_dataset = PrescriptionDataset(
         CSV_PATH,
         split="train",
-        transform=transform,
+        transform=train_transform,
         class_to_idx=class_to_idx
     )
 
     validation_dataset = PrescriptionDataset(
         CSV_PATH,
         split="validation",
-        transform=transform,
+        transform=validation_transform,
         class_to_idx=class_to_idx
     )
 
     test_dataset = PrescriptionDataset(
         CSV_PATH,
         split="test",
-        transform=transform,
+        transform=test_transform,
         class_to_idx=class_to_idx
     )
 
