@@ -31,7 +31,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -39,11 +38,10 @@ app.add_middleware(
         "http://localhost:5500",
         "http://[::]:5500",
     ],
-    allow_credentials=False,
-    allow_methods=["GET", "POST"],
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 app.add_exception_handler(Exception, global_exception_handler)
 
