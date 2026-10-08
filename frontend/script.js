@@ -297,7 +297,7 @@ function stopCamera() {
 
 analyzeBtn.addEventListener(
     "click",
-    function () {
+    async function () {
 
         // Check whether image exists
         if (!selectedImage) {
@@ -309,11 +309,95 @@ analyzeBtn.addEventListener(
         }
 
 
-        // Temporary frontend message
-        // Real AI analysis will be connected later
+        // Show loading state
+        analyzeBtn.disabled = true;
+
+        analyzeBtn.textContent =
+            "⏳ Analyzing...";
 
         resultText.textContent =
-            "Prescription received successfully. AI analysis will be connected in the next step.";
+            "Analyzing prescription. Please wait...";
+
+
+        try {
+
+            // Create multipart form data
+            const formData =
+                new FormData();
+
+            // Backend expects the field name "file"
+            formData.append(
+                "file",
+                selectedImage
+            );
+
+
+            // Send image to FastAPI backend
+            const response =
+                await fetch(
+                    "http://127.0.0.1:8000/predict",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+            // Parse backend response
+            const data =
+                await response.json();
+
+
+            // Handle backend errors
+            if (!response.ok) {
+
+                throw new Error(
+                    data.detail ||
+                    "Prescription analysis failed."
+                );
+
+            }
+
+
+            // Display prediction
+            resultText.innerHTML = `
+                <strong>Medicine:</strong>
+                ${data.medicine}
+                <br><br>
+
+                <strong>Generic Name:</strong>
+                ${data.generic_name}
+                <br><br>
+
+                <strong>Confidence:</strong>
+                ${(data.confidence * 100).toFixed(2)}%
+            `;
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Prediction error:",
+                error
+            );
+
+
+            resultText.textContent =
+                error.message ||
+                "Unable to analyze the prescription. Please try again.";
+
+        }
+
+        finally {
+
+            // Restore analyze button
+            analyzeBtn.disabled = false;
+
+            analyzeBtn.textContent =
+                "🔍 Analyze Prescription";
+
+        }
 
     }
 );
