@@ -8,6 +8,7 @@ from sqlalchemy.pool import StaticPool
 from backend.database.database import Base, get_db
 from backend.database.models import Medicine
 from backend.main import app
+from backend.ml003_inference import ML003InferenceEngine
 
 
 @pytest.fixture
@@ -58,6 +59,10 @@ async def client(test_session):
 
     app.dependency_overrides[get_db] = override_get_db
 
+    # Initialize the same application-level inference engine
+    # used by production.
+    app.state.inference_engine = ML003InferenceEngine()
+
     transport = httpx.ASGITransport(app=app)
 
     try:
@@ -68,3 +73,4 @@ async def client(test_session):
             yield client
     finally:
         app.dependency_overrides.clear()
+        app.state.inference_engine = None

@@ -1,35 +1,82 @@
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    HTTPException,
+    Request,
+    UploadFile,
+    status,
+)
 from sqlalchemy.orm import Session
 
 from backend.database.database import get_db
 from backend.database.models import Medicine
-from backend.inference import MockInferenceEngine
-from backend.schemas import PredictResponse, VerifyRequest, VerifyResponse
+from backend.schemas import (
+    PredictResponse,
+    VerifyRequest,
+    VerifyResponse,
+)
 from backend.services.prediction_service import PredictionService
 from backend.utils import ImageValidationError
 
-
 router = APIRouter()
 
-# Predict the medicine from the uploaded image and return its name, generic name, and confidence score.
 
 @router.post(
     "/predict",
     response_model=PredictResponse,
+    summary="Predict medicine from a handwritten prescription",
+    description=(
+        "Upload a doctor's handwritten prescription image and "
+        "predict the medicine name using the ML003 model.\n\n"
+        "Accepted image formats: JPEG and PNG.\n"
+        "Maximum upload size: 10 MB.\n\n"
+        "The returned confidence is the model's prediction confidence "
+        "and should not be interpreted as medical certainty."
+    ),
+    responses={
+        400: {
+            "description": "Invalid or unsupported image.",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "detail": "Uploaded file is not a valid image."
+                    }
+                }
+            },
+        },
+        422: {
+            "description": "Request validation error.",
+        },
+        500: {
+            "description": "Unexpected server error.",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "error": "internal_server_error",
+                        "message": "An unexpected error occurred.",
+                    }
+                }
+            },
+        },
+    },
 )
 async def predict(
-    file: UploadFile = File(...),
+    request: Request,
+    file: UploadFile = File(
+        ...,
+        description=(
+            "Prescription image in JPEG or PNG format. "
+            "Maximum size: 10 MB."
+        ),
+    ),
     db: Session = Depends(get_db),
 ) -> PredictResponse:
-
-    # Read uploaded file into memory.
     image_bytes = await file.read()
 
-    # The inference interface currently expects a path.
-    # We create a temporary file for the current mock implementation.
     temp_path = None
 
     try:
@@ -42,7 +89,7 @@ async def predict(
 
         service = PredictionService(
             db=db,
-            inference_engine=MockInferenceEngine(),
+            inference_engine=request.app.state.inference_engine,
         )
 
         result, medicine, _ = service.predict(
@@ -73,17 +120,19 @@ async def predict(
             temp_path.unlink(missing_ok=True)
 
 
-#  Verify if a medicine exists in the database and return its generic name if it does.
-
 @router.post(
     "/verify",
     response_model=VerifyResponse,
+    summary="Verify a medicine name",
+    description=(
+        "Check whether a predicted medicine name exists in the "
+        "medicine database and return its generic name when available."
+    ),
 )
 def verify_medicine(
     request: VerifyRequest,
     db: Session = Depends(get_db),
 ) -> VerifyResponse:
-
     medicine = (
         db.query(Medicine)
         .filter(Medicine.name == request.medicine_name)

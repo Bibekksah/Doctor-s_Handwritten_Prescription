@@ -15,7 +15,7 @@ from sklearn.metrics import (
 )
 
 from ml.dataloader import create_dataloaders
-from ml.model import MedicineClassifier
+from ml.archive.model import MedicineClassifier
 from ml.device import get_device, get_device_name
 
 from CV.preprocessing import (

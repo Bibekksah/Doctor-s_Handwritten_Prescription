@@ -13,7 +13,7 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from ml.model_ml002 import ImprovedMedicineClassifier
+from ml.archive.model_ml002 import ImprovedMedicineClassifier
 from ml.dataloader import create_dataloaders
 from ml.device import get_device, get_device_name
 from CV.preprocessing import get_grayscale_transform

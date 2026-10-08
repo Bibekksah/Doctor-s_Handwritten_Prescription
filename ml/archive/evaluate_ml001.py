@@ -15,10 +15,10 @@ from sklearn.metrics import (
 )
 
 from ml.dataloader import create_dataloaders
-from ml.model import MedicineClassifier
+from ml.archive.model import MedicineClassifier
 from ml.device import get_device, get_device_name
 
-from ml.augmentation import get_validation_transform
+from ml.archive.augmentation import get_validation_transform
 
 
 # ============================================================

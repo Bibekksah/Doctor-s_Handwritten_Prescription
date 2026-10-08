@@ -8,7 +8,7 @@ import torch.nn as nn
 from tqdm import tqdm
 
 from ml.dataloader import create_dataloaders
-from ml.model import MedicineClassifier
+from ml.archive.model import MedicineClassifier
 from ml.device import get_device, get_device_name
 
 
