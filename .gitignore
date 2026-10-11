@@ -1,7 +1,20 @@
+# Virtual environments
+.*venv*/
 .venv/
-data/
+.venv_clean/
+env/
+venv/
+
+# macOS system files
 .DS_Store
+
+# Python cache files
 __pycache__/
 *.pyc
-__pycache__/
-*.pyc
+
+# Heavy data directories & models
+data/
+*.pt
+*.onnx
+*.h5
+*.pth

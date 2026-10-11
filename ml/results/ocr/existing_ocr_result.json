@@ -3,7 +3,7 @@
   "image": "/core/final_year_project2/data/ocr_samples/images.jpeg",
   "image_width": 387,
   "image_height": 516,
-  "processing_time_seconds": 19.632666795994737,
+  "processing_time_seconds": 24.318501870000546,
   "detected_region_count": 36,
   "regions": [
     {
