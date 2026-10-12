@@ -1,4 +1,6 @@
 Doctor's Handwritten Prescription — Backend
+
+use this to run the backend = python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 1. Overview
 
 The backend of Doctor's Handwritten Prescription provides an API for recognizing medicine names from doctors' handwritten prescription images.
